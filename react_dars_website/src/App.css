@@ -10,3 +10,13 @@ h1 {
   color: #f9f9f9;
   margin-top: 80px;
 }
+div{
+  margin-bottom: 7px;
+  font-size: 20px;
+}
+input[type="checkbox"]{
+  margin-right: 10px;
+}
+input[type="radio"]{
+  margin-right: 10px;
+}
