@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Protest+Riot&display=swap');
+
+/* style for visual class */
+.visualBG{
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 221vh;
+    background: url('C:\Users\yt021\OneDrive\Desktop\35L\CS35L_Final_Project\react_dars_website\src\Components\Assets\loginWP.jpg')
+    no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
 /* style for wrapper class */
 .wrapper{
     width: 420px;
