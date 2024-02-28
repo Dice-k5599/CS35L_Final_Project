@@ -1,10 +1,12 @@
 import React, { Component, useEffect, useState } from "react";
-import CardList from "./CardList";
-import SearchBox from "./SearchBox";
-import { robots } from "./robots";
+//import CardList from "./CardList";
+//import SearchBox from "./SearchBox";
+//import { robots } from "./robots";
 import "./App.css";
 import { Auth } from "./components/auth";
-import { db } from "./config/firebase";
+import { ClassReg } from "./components/ClassReg";
+import { DisplayClasses } from "./components/DisplayClasses";
+import { db, auth } from "./config/firebase";
 import {
   getDocs,
   collection,
@@ -15,28 +17,22 @@ import {
 
 function App() {
   const [classList, setClassList] = useState([]);
-  const classCollectionRef = collection(db, "cs_classes");
-
-  const [newClassName, setNewClassName] = useState("");
-  const [newClassCode, setNewClassCode] = useState("");
-  const [newClassAvailability, setNewClassAvailability] = useState(false);
-
-  //Update specific parts of the class document
-  const [updateClassName, setUpdatedClassName] = useState("");
-  const [updateClassCode, setUpdatedClassCode] = useState("");
-  const [updateClassAvailability, setUpdatedClassAvailability] =
-    useState(false);
-
   const getCLassList = async () => {
     try {
-      const data = await getDocs(classCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
+      let filteredData = [];
+      if (!auth.currentUser) {
+        //filtered data is empty since no user is logged in
+      } else {
+        const studentDocRef = doc(db, "students", auth?.currentUser?.uid);
+        const classesSubcollectionRef = collection(studentDocRef, "classes");
+        const data = await getDocs(classesSubcollectionRef);
+        filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+      }
 
       setClassList(filteredData);
-      console.log({ filteredData });
     } catch (err) {
       console.log(err);
     }
@@ -46,81 +42,17 @@ function App() {
     getCLassList();
   }, []);
 
-  const submitClass = async () => {
-    try {
-      await addDoc(classCollectionRef, {
-        className: newClassName,
-        classCode: newClassCode,
-        availability: newClassAvailability,
-      });
-      getCLassList();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const deleteClass = async (id) => {
-    try {
-      const classDoc = doc(db, "cs_classes", id);
-      await deleteDoc(classDoc);
-      getCLassList();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const updateClass = async (id) => {
-    try {
-      const classDoc = doc(db, "cs_classes", id);
-      await deleteDoc(classDoc);
-      getCLassList();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
-    <div className="App">
-      <Auth />
+    <div className="">
+      <Auth onGetClassList={getCLassList} />
+      <ClassReg onGetClassList={getCLassList} />
 
-      <div>
-        <input
-          placeholder="Class Name..."
-          onChange={(e) => setNewClassName(e.target.value)}
-        ></input>
-        <input
-          placeholder="Class Code..."
-          onChange={(e) => setNewClassCode(e.target.value)}
-        ></input>
-        <input
-          type="checkbox"
-          checked={newClassAvailability}
-          onChange={(e) => setNewClassAvailability(e.target.checked)}
-        ></input>
-        <label> Available this academic year</label>
-        <div>
-          <button onClick={submitClass}>Register this class</button>
-        </div>
-      </div>
-
-      <div>
-        {classList.map((csClass) => (
-          <div>
-            <h1 style={{ color: csClass.availability ? "green" : "red" }}>
-              Class name: {csClass.className}
-            </h1>
-            <p>Class code: {csClass.classCode}</p>
-            <button onClick={() => deleteClass(csClass.id)}>
-              Delete class
-            </button>
-            <button></button>
-          </div>
-        ))}
-      </div>
+      <DisplayClasses classList={classList} onGetClassList={getCLassList} />
     </div>
   );
 }
 
+//Daisuke's code for Basketball portion below
 /*
 class App extends Component {
   constructor() {
