@@ -228,6 +228,12 @@ class App extends Component {
                             Sci-Tech #3
                         </div>
                     </div>
+                    <div>
+                        <button type="button">
+                            Save 
+                        </button>
+                    </div>
+
                 </div>
             </form>
         );

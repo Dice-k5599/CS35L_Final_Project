@@ -20,3 +20,10 @@ input[type="checkbox"]{
 input[type="radio"]{
   margin-right: 10px;
 }
+/*p now makes a red outline around text*/
+p { 
+  width: 700px;
+  border: 15px solid red;
+  padding: 25px;
+  margin: 15px;
+}
