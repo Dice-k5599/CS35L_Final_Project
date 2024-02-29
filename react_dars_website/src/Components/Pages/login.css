@@ -10,7 +10,7 @@
     align-items: center;
     min-height: 100vh;
     min-width: 221vh;
-    background: url('C:\Users\yt021\OneDrive\Desktop\35L\CS35L_Final_Project\react_dars_website\src\Components\Assets\loginWP.jpg')
+    background: url('../Assets/loginWP.jpg')
     no-repeat;
     background-size: cover;
     background-position: center;
