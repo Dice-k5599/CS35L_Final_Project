@@ -17,7 +17,7 @@ const LoginForm = () => {
                 <div className = "wrapper">
                     <form action = "">
                         {/* Heading 1 */}
-                        <h1>ClassSync Login</h1>
+                        <h1>ClassSync</h1>
 
                         {/* username box */}
                         <div className = "input-box">
@@ -34,18 +34,27 @@ const LoginForm = () => {
                         
                         <div className = "remember-forgot">
                             {/* checkbox */}
-                            <label><input type = "checkbox" /> Remember me</label>
+                            {/*<label><input type = "checkbox" /> Remember me</label>*/}
                             {/* link to forgot pw page */}
                             {/* NEED CHANGE, so far the forgot link take to google homepage */}
                             <a href = "https://www.google.com.tw/?hl=zh-TW"> Forgot passward?</a>
                         </div>
 
-                        {/* Login button takes to next page (about) */}
-                        <button 
-                            onClick={() => {
-                            navigate("/temp");
-                        }}>
-                            Login</button>
+                        {/* Login button takes to next page (Temp) */}
+                        <div className = "allButton">
+                            <button 
+                                onClick={() => {
+                                navigate("/temp");
+                            }}>
+                                Login</button>
+
+                            {/* Google Login button takes to next page (Temp) */}
+                            <button
+                                onClick={() => {
+                                    navigate("/temp");
+                                }}>
+                                    Continue with Google</button>
+                        </div>
 
                         <div className = "register-link">
                             {/* link to create account */}
