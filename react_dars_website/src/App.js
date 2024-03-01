@@ -1,7 +1,4 @@
 import React, { Component, useEffect, useState } from "react";
-//import CardList from "./CardList";
-//import SearchBox from "./SearchBox";
-//import { robots } from "./robots";
 import "./App.css";
 import { Auth } from "./Components/auth";
 import { ClassReg } from "./Components/ClassReg";
@@ -51,42 +48,4 @@ function App() {
     </div>
   );
 }
-
-//Daisuke's code for Basketball portion below
-/*
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      // state is something that could change
-      robots: robots,
-      searchfield: "",
-    };
-  }
-
-  componentDidMount() {}
-
-  onSearchChange = (event) => {
-    this.setState({ searchfield: event.target.value }); //need to do this instead of this.state.searchfield = value
-  };
-
-  render() {
-    const filteredRobots = this.state.robots.filter((robot) => {
-      return robot.name
-        .toLowerCase()
-        .includes(this.state.searchfield.toLowerCase());
-    });
-
-    return (
-      <div className="tc">
-        <h1>
-          <strong>Lakers Players Index</strong>
-        </h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <CardList robots={filteredRobots} />
-      </div>
-    );
-  }
-}
-*/
 export default App;
