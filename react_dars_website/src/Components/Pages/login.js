@@ -6,7 +6,6 @@ import "./login.css";
 // RiBearSmileLine -> bear icon
 import { RiBearSmileLine } from "react-icons/ri";
 // FaLock -> lock icon
-//
 import { FaLock } from "react-icons/fa";
 
 // Import the useNavigate to go through pages
