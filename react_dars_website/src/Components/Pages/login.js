@@ -1,5 +1,7 @@
-import React from 'react';
-import './login.css';
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import "./login.css";
 // import the codes for using the icons from react-icons
 // RiBearSmileLine -> bear icon
 import { RiBearSmileLine } from "react-icons/ri";
@@ -9,65 +11,103 @@ import { FaLock } from "react-icons/fa";
 // Import the useNavigate to go through pages
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
-    const navigate = useNavigate();
+import { Auth } from "../../Components/auth";
 
-    return(
-            <div className = "visualBG">
-                <div className = "wrapper">
-                    <form action = "">
-                        {/* Heading 1 */}
-                        <h1>ClassSync</h1>
+const LoginForm = ({ onGetClassList }) => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginType, setLoginType] = useState("");
+  const [fullName, setFullName] = useState("");
 
-                        {/* username box */}
-                        <div className = "input-box">
-                            <input type = "text" placeholder = "UID" required />
-                            {/* Put the bear icon on */}
-                            <RiBearSmileLine className = "icon" />
-                        </div>
-                        {/* password box */}
-                        <div className = "input-box">
-                            <input type = "password" placeholder = "Passwords" required />
-                            {/* Put the lock icon on */}
-                            <FaLock className = "icon" />
-                        </div>
-                        
-                        <div className = "remember-forgot">
-                            {/* checkbox */}
-                            {/*<label><input type = "checkbox" /> Remember me</label>*/}
-                            {/* link to forgot pw page */}
-                            {/* NEED CHANGE, so far the forgot link take to google homepage */}
-                            <a href = "https://www.google.com.tw/?hl=zh-TW"> Forgot passward?</a>
-                        </div>
+  const [showAuth, setShowAuth] = useState(false);
+  useEffect(() => {
+    if (showAuth) {
+      setShowAuth(false);
+      console.log("Auth is now false");
+    }
+  }, [showAuth]);
 
-                        {/* Login button takes to next page (Temp) */}
-                        <div className = "allButton">
-                            <button 
-                                onClick={() => {
-                                navigate("/temp");
-                            }}>
-                                Login</button>
+  return (
+    <div className="visualBG">
+      <div className="wrapper">
+        <form action="">
+          {/* Heading 1 */}
+          <h1>ClassSync</h1>
 
-                            {/* Google Login button takes to next page (Temp) */}
-                            <button
-                                onClick={() => {
-                                    navigate("/temp");
-                                }}>
-                                    Continue with Google</button>
-                        </div>
+          {/* username box */}
+          <div className="input-box">
+            <input
+              type="email"
+              placeholder="UCLA USERNAME"
+              required
+              onChange={(e) => setEmail(e.target.value + "@g.ucla.edu")}
+            />
+            {/* Put the bear icon on */}
+            <RiBearSmileLine className="icon" />
+          </div>
+          {/* password box */}
+          <div className="input-box">
+            <input
+              type="password"
+              placeholder="Passwords"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {/* Put the lock icon on */}
+            <FaLock className="icon" />
+          </div>
 
-                        <div className = "register-link">
-                            {/* link to create account */}
-                            {/* NEED CHANGE, so far the Register link take to YouTube homepage */}
-                            <p>Don't have an account? <a href = "https://www.youtube.com/"> Register</a></p>
-                        </div>
-                        
-                    </form>
-                </div>
-            </div> 
+          <div className="remember-forgot">
+            {/* checkbox */}
+            {/*<label><input type = "checkbox" /> Remember me</label>*/}
+            {/* link to forgot pw page */}
+            {/* NEED CHANGE, so far the forgot link take to google homepage */}
+            <a href="https://www.google.com.tw/?hl=zh-TW"> Forgot password?</a>
+          </div>
 
-    )
+          {/* Login button takes to next page (Temp) */}
+          <div className="allButton">
+            <button
+              onClick={() => {
+                setLoginType("emailSignIn");
+                console.log("onClick is running");
+                setShowAuth(true);
+              }}
+            >
+              Login
+            </button>
+            {showAuth && (
+              <Auth
+                loginType={loginType}
+                email={email}
+                password={password}
+                onGetClassList={onGetClassList}
+              />
+            )}
 
-}
+            {/* Google Login button takes to next page (Temp) */}
+            <button
+              onClick={() => {
+                navigate("/temp");
+              }}
+            >
+              Continue with Google
+            </button>
+          </div>
 
-export default LoginForm
+          <div className="register-link">
+            {/* link to create account */}
+            {/* NEED CHANGE, so far the Register link take to YouTube homepage */}
+            <p>
+              Don't have an account?{" "}
+              <a href="https://www.youtube.com/"> Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default LoginForm;

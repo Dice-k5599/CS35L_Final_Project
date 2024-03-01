@@ -4,7 +4,7 @@ import React, { Component, useEffect, useState } from "react";
 //import { robots } from "./robots";
 import "./App.css";
 
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./Components/Pages/About.js";
 import LoginForm from "./Components/Pages/login.js";
 import Temp from "./Components/Pages/Temp.js";
@@ -50,16 +50,20 @@ function App() {
 
   return (
     <div className="App">
+      {/*
       <Auth onGetClassList={getCLassList} />
       <ClassReg onGetClassList={getCLassList} />
 
-      <DisplayClasses classList={classList} onGetClassList={getCLassList} />
+      <DisplayClasses classList={classList} onGetClassList={getCLassList} />*/}
 
       <Router>
         <Routes>
-          <Route path = "/" element={<LoginForm/>} />
-          <Route path = "/about" element={<About/>} />
-          <Route path = "/temp" element={<Temp/>} />
+          <Route
+            path="/"
+            element={<LoginForm onGetClassList={getCLassList} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/temp" element={<Temp />} />
         </Routes>
       </Router>
     </div>
