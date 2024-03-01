@@ -10,26 +10,21 @@ import {
 import { ResetPassword } from "./ResetPassword";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
 
-export const Auth = ({ onGetClassList }) => {
+export const Auth = ({ loginType, email, password, onGetClassList }) => {
+  console.log("Auth is running");
+  const navigate = useNavigate();
+
+  /*
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
+  */
 
   const handleSetClassList = () => {
     onGetClassList();
   };
-  /*
-  const signUp = async () => {
-    console.log(email);
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      console.log(err);
-      alert("Sign-up error: " + err);
-    }
-  };
-  */
 
   const signUp = async () => {
     console.log(email);
@@ -42,11 +37,12 @@ export const Auth = ({ onGetClassList }) => {
       const user = studentCred.user;
       await setDoc(doc(db, "students", user.uid), {
         email: user.email,
-        fullName: fullName,
+        //fullName: fullName,
       });
       handleSetClassList();
       console.log("User created and document added to Firestore");
-      alert("You are logged in");
+      navigate("/temp");
+      //alert("You are logged in");
     } catch (err) {
       console.log(err);
       alert("Sign-up error: " + err);
@@ -54,13 +50,16 @@ export const Auth = ({ onGetClassList }) => {
   };
 
   const signIn = async () => {
+    console.log(email, password);
     try {
       await signInWithEmailAndPassword(auth, email, password);
       handleSetClassList();
-      alert("You are logged in");
+      console.log("You are logged in");
+      navigate("/temp");
+      return true;
     } catch (err) {
       console.log(err);
-      alert("Sign-in error: " + err);
+      console.log("Sign-in error: " + err);
     }
   };
 
@@ -78,6 +77,8 @@ export const Auth = ({ onGetClassList }) => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleAuth);
+      console.log("google sign in success");
+      navigate("/temp");
       //alert("You are logged in");
     } catch (err) {
       console.log(err);
@@ -95,8 +96,15 @@ export const Auth = ({ onGetClassList }) => {
       alert("Sign-out error: " + err);
     }
   };
-  //console.log(auth?.currentUser?.email);
+  if (loginType == "emailSignIn") {
+    signIn();
+  } else if (loginType == "googleSignIn") {
+    signInWithGoogle();
+  } else if (loginType == "signUp") {
+    signUp();
+  }
 
+  /*
   return (
     <div>
       <input
@@ -122,5 +130,5 @@ export const Auth = ({ onGetClassList }) => {
         <button onClick={logOut}> Sign out</button>
       </div>
     </div>
-  );
+  );*/
 };
