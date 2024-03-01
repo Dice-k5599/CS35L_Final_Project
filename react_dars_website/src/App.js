@@ -3,9 +3,15 @@ import React, { Component, useEffect, useState } from "react";
 //import SearchBox from "./SearchBox";
 //import { robots } from "./robots";
 import "./App.css";
-import { Auth } from "./components/auth";
-import { ClassReg } from "./components/ClassReg";
-import { DisplayClasses } from "./components/DisplayClasses";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import About from "./Components/Pages/About.js";
+import LoginForm from "./Components/Pages/login.js";
+import Temp from "./Components/Pages/Temp.js";
+
+import { Auth } from "./Components/auth.js";
+import { ClassReg } from "./Components/ClassReg.js";
+import { DisplayClasses } from "./Components/DisplayClasses.js";
 import { db, auth } from "./config/firebase";
 import {
   getDocs,
@@ -43,11 +49,23 @@ function App() {
   }, []);
 
   return (
-    <div className="">
+    <div className="App">
+      {/*
       <Auth onGetClassList={getCLassList} />
       <ClassReg onGetClassList={getCLassList} />
 
-      <DisplayClasses classList={classList} onGetClassList={getCLassList} />
+      <DisplayClasses classList={classList} onGetClassList={getCLassList} />*/}
+
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<LoginForm onGetClassList={getCLassList} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/temp" element={<Temp />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { UpdateDoc } from "../components/UpdateDoc";
+import { UpdateDoc } from "../Components/UpdateDoc";
 import { db, auth } from "../config/firebase";
 import { deleteDoc, doc } from "firebase/firestore";
 
