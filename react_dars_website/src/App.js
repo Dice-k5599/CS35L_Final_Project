@@ -3,9 +3,9 @@ import React, { Component, useEffect, useState } from "react";
 //import SearchBox from "./SearchBox";
 //import { robots } from "./robots";
 import "./App.css";
-import { Auth } from "./components/auth";
-import { ClassReg } from "./components/ClassReg";
-import { DisplayClasses } from "./components/DisplayClasses";
+import { Auth } from "./Components/auth";
+import { ClassReg } from "./Components/ClassReg";
+import { DisplayClasses } from "./Components/DisplayClasses";
 import { db, auth } from "./config/firebase";
 import {
   getDocs,
