@@ -71,25 +71,18 @@ const LoginForm = ({ onGetClassList }) => {
             <button
               onClick={() => {
                 setLoginType("emailSignIn");
-                console.log("onClick is running");
                 setShowAuth(true);
+                console.log("onClick is running");
               }}
             >
               Login
             </button>
-            {showAuth && (
-              <Auth
-                loginType={loginType}
-                email={email}
-                password={password}
-                onGetClassList={onGetClassList}
-              />
-            )}
 
             {/* Google Login button takes to next page (Temp) */}
             <button
               onClick={() => {
-                navigate("/temp");
+                setLoginType("googleSignIn");
+                setShowAuth(true);
               }}
             >
               Continue with Google
@@ -101,9 +94,24 @@ const LoginForm = ({ onGetClassList }) => {
             {/* NEED CHANGE, so far the Register link take to YouTube homepage */}
             <p>
               Don't have an account?{" "}
-              <a href="https://www.youtube.com/"> Register</a>
+              <button
+                onClick={() => {
+                  setLoginType("signUp");
+                  setShowAuth(true);
+                }}
+              >
+                Register
+              </button>
             </p>
           </div>
+          {showAuth && (
+            <Auth
+              loginType={loginType}
+              email={email}
+              password={password}
+              onGetClassList={onGetClassList}
+            />
+          )}
         </form>
       </div>
     </div>

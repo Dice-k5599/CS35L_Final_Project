@@ -41,7 +41,8 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       });
       handleSetClassList();
       console.log("User created and document added to Firestore");
-      alert("You are logged in");
+      navigate("/temp");
+      //alert("You are logged in");
     } catch (err) {
       console.log(err);
       alert("Sign-up error: " + err);
@@ -49,7 +50,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   };
 
   const signIn = async () => {
-    console.log("Sign in block is running");
+    console.log(email, password);
     try {
       await signInWithEmailAndPassword(auth, email, password);
       handleSetClassList();
@@ -76,6 +77,8 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleAuth);
+      console.log("google sign in success");
+      navigate("/temp");
       //alert("You are logged in");
     } catch (err) {
       console.log(err);
@@ -95,7 +98,12 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   };
   if (loginType == "emailSignIn") {
     signIn();
+  } else if (loginType == "googleSignIn") {
+    signInWithGoogle();
+  } else if (loginType == "signUp") {
+    signUp();
   }
+
   /*
   return (
     <div>
