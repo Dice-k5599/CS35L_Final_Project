@@ -94,7 +94,7 @@ const LoginForm = ({ onGetClassList }) => {
             {/* NEED CHANGE, so far the Register link take to YouTube homepage */}
             <p>
               Don't have an account?{" "}
-              <button
+              <button className="pointer"
                 onClick={() => {
                   setLoginType("signUp");
                   setShowAuth(true);
