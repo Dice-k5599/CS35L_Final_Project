@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./Components/Pages/About.js";
 import LoginForm from "./Components/Pages/login.js";
 import Temp from "./Components/Pages/Temp.js";
+import Chart from "./Components/Pages/chartTesting.js"
 
 import { Auth } from "./Components/auth.js";
 import { ClassReg } from "./Components/ClassReg.js";
@@ -64,6 +65,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/temp" element={<Temp />} />
+          <Route path="/chart" element={<Chart />} />
         </Routes>
       </Router>
     </div>

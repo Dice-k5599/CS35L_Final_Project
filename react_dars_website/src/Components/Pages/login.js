@@ -40,7 +40,7 @@ const LoginForm = ({ onGetClassList }) => {
           <div className="input-box">
             <input
               type="email"
-              placeholder="UCLA USERNAME"
+              placeholder="UCLA Username"
               required
               onChange={(e) => setEmail(e.target.value + "@g.ucla.edu")}
             />
@@ -63,8 +63,9 @@ const LoginForm = ({ onGetClassList }) => {
             {/* checkbox */}
             {/*<label><input type = "checkbox" /> Remember me</label>*/}
             {/* link to forgot pw page */}
+
             {/* NEED CHANGE, so far the forgot link take to google homepage */}
-            <a href="https://www.google.com.tw/?hl=zh-TW"> Forgot password?</a>
+            <a href="https://www.google.com.tw/?hl=zh-TW"> Forgot Password?</a>
           </div>
 
           {/* Login button takes to next page (Temp) */}
