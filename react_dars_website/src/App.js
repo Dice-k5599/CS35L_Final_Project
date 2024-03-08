@@ -17,10 +17,12 @@ import About from "./Components/Pages/About.js";
 import LoginForm from "./Components/Pages/login.js";
 import Temp from "./Components/Pages/Temp.js";
 import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
+import MyDialog from "./Components/Pages/dashboard/MyDialog.js"
 
 import { Auth } from "./Components/auth.js";
 import { ClassReg } from "./Components/ClassReg.js";
 import { DisplayClasses } from "./Components/DisplayClasses.js";
+
 
 function App() {
   const [classList, setClassList] = useState([]);
@@ -62,10 +64,10 @@ function App() {
           {/* <Route
             path="/"
             element={<LoginForm onGetClassList={getCLassList} />}
-          /> */}
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/temp" element={<Temp />} /> */}
-          {/* <Route path="/DashBoard" element={<DashBoard />} /> */}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/temp" element={<Temp />} />
+          <Route path="/DashBoard" element={<DashBoard />} /> */}
           <Route path="/" element={<DashBoard />} />
         </Routes>
       </Router>
