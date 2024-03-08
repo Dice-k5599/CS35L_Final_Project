@@ -12,6 +12,8 @@ import { ResetPassword } from "./ResetPassword";
 import { setDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { addDefaultClass } from "./AddDefaultClass";
+import { ClassData } from "./ClassData";
 
 export const Auth = ({ loginType, email, password, onGetClassList }) => {
   console.log("Auth is running");
@@ -31,7 +33,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       );
 
       //sign the user out so they can't login yet.
-      await signOut(auth);
+      //await signOut(auth);
       alert("You are signed out");
 
       //Send the verification email right after signing up
@@ -48,6 +50,8 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
         verified: false
         //fullName: fullName,
       });
+      await addDefaultClass(`students/${user.uid}/classes`);
+
       handleSetClassList();
       console.log("User created and document added to Firestore");
     } catch (err) {
@@ -60,12 +64,12 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     try {
       const studentCred = await signInWithEmailAndPassword(auth, email, password);
       const user = studentCred.user;
-      if (user && !user.emailVerified) {
+      /*if (user && !user.emailVerified) {
         await signOut(auth);
         alert("Please verify your email before signing in! We have sent a new email verification link.");
         await sendEmailVerification(user);
       }
-      else { 
+      else */if(user){
         const userDocRef = doc(db, "students", user.uid);
         console.log("updating user verified flag");
         await updateDoc(userDocRef, {
