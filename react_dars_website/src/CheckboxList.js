@@ -6,6 +6,7 @@ const CheckboxList = ({ ClassData }) => {
     console.log(ClassData[0].completed);
     return (
         <div>
+            <h1>Please selected Completed Courses:</h1>
             {
                 ClassData.map((user, i) => {
                     return (
@@ -22,6 +23,7 @@ const CheckboxList = ({ ClassData }) => {
                     );
                  })
             }
+            <button type="button" style={{marginLeft:"30px"}}>Save</button>
         </div>
     );
 }
