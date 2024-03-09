@@ -54,7 +54,6 @@ const CheckboxList = () => {
                     </div>
                 ))
             }
-            <button type="button" style={{ marginLeft: "30px" }}>Save</button>
         </div>
     );
 };
