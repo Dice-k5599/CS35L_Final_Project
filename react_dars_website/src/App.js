@@ -5,10 +5,10 @@ import React, { Component, useEffect, useState } from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import About from "./compona/Pages/About.js"
-import LoginForm from "./compona/Pages/login.js";
-import Temp from "./compona/Pages/Temp.js";
-import ClassSelection from "./compona/Pages/ClassSelection.js";
+import About from "./Components/Pages/About.js"
+import LoginForm from "./Components/Pages/login.js";
+import Temp from "./Components/Pages/Temp.js";
+import ClassSelection from "./Components/Pages/ClassSelection.js";
 
 //import { Auth } from "./Components/auth.js";
 //import { ClassReg } from "./Components/ClassReg.js";
