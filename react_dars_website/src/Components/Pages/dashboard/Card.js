@@ -8,7 +8,7 @@ import { Fragment, useState } from 'react'
 
 function Card(){
 
-    let [isOpen, setIsOpen] = useState(true);
+    let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
         setIsOpen(false);
@@ -20,7 +20,7 @@ function Card(){
         <>
             <div>
                 <div
-                    className="m-2 w-32 h-16 shrink-0 rounded-md border-1 border-ucla-blue bg-state-50 flex justify-center items-center text-md font-medium text-grey-500 hover:text-white hover:bg-ucla-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 active:bg-blue-600 transition duration-150 ease-in-out hover:scale-110"
+                    className="m-2 w-32 h-16 shrink-0 rounded-md border-1 border-zinc-400 bg-state-50 flex justify-center items-center text-md font-medium text-zinc-400 hover:text-white hover:bg-ucla-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 active:bg-blue-600 transition duration-150 ease-in-out hover:scale-110"
                     onClick={openModal}
                     >
                     CS1
@@ -97,19 +97,7 @@ function Card(){
                     </span>
                 </label>
             </div> */}
-            {/* <div className="fixed inset-0 flex items-center justify-center">
-                <button
-                    type="button"
-                    onClick={openModal}
-                    className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 active:bg-black/50"
-                    >
-                    Open dialog
-                </button>
-            </div> */}
         </>
-
-
-        
     );
 }
 

@@ -17,6 +17,7 @@ import About from "./Components/Pages/About.js";
 import LoginForm from "./Components/Pages/login.js";
 import Temp from "./Components/Pages/Temp.js";
 import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
+import SelectionPage from "./Components/Pages/selectionPage/SelectionPage.js";
 import MyDialog from "./Components/Pages/dashboard/MyDialog.js"
 
 import { Auth } from "./Components/auth.js";
@@ -68,7 +69,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/temp" element={<Temp />} />
           <Route path="/DashBoard" element={<DashBoard />} /> */}
-          <Route path="/" element={<DashBoard />} />
+          {/* <Route path="/" element={<DashBoard />} /> */}
+          <Route path="/" element={<SelectionPage />} />
         </Routes>
       </Router>
     </div>

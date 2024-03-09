@@ -12,11 +12,11 @@ function Navigationbar(){
 
     return (
         <>
-            <Navbar id="navbar" fixed="top" data-bs-theme="dark">
+            <Navbar id="navbar" fixed="top" data-bs-theme="dark" className="hover:text-white">
                 <Navbar.Brand href="#home" className="ml-10">Home</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Dashboard</Nav.Link>
-                    <Nav.Link href="#features">Classes</Nav.Link>
+                    <Nav.Link href="" className="hover:text-white">Dashboard</Nav.Link>
+                    <Nav.Link href="#features">MyClasses</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end mr-10">
                     <Nav.Link href="#signin" className="justify-content-end">Sign Out</Nav.Link>
