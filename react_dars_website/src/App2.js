@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './App.css'
-import CheckboxList from "./CheckboxList";
+import CheckboxList from "./components/CheckboxList";
 import ClassList from "./ClassList";
 import { ClassData } from "./ClassData";
 
