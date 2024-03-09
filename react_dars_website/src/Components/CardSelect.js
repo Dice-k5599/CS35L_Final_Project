@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { updateDoc, doc } from 'firebase/firestore';
 import getClassData from './getClassData';
 import { db, auth } from '../config/firebase'; // Assuming db is exported from firebase config
+import SelectionCard from './Pages/selectionPage/SelectionCard';
 
 const CheckboxList = () => {
     const [classData, setClassData] = useState([]);
@@ -44,13 +45,11 @@ const CheckboxList = () => {
             {
                 classData.map((classItem, i) => (
                     <div key={i} style={{ marginLeft: "20px" }}>
-                        <input
-                            type='checkbox'
-                            name={classItem.classCode}
-                            checked={completed[i]} // Use completed state for checked status
-                            onChange={() => handleCheckboxChange(i)}
+                        <SelectionCard
+                            checked={completed[i]}
+                            onChange={()=>{handleCheckboxChange(i)}}
+                            label={classItem.classCode}
                         />
-                        {classItem.classCode}
                     </div>
                 ))
             }

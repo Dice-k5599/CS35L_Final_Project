@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import CheckboxList from "../CheckboxList";
+import CheckboxList from "../CardSelect";
 
 function ClassSelection(){
     const navigate = useNavigate();
