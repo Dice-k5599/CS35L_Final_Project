@@ -11,7 +11,7 @@ import { FaLock } from "react-icons/fa";
 // Import the useNavigate to go through pages
 import { useNavigate } from "react-router-dom";
 
-import { Auth } from "../../Components/auth";
+import { Auth } from "../auth";
 
 const LoginForm = ({ onGetClassList }) => {
   const navigate = useNavigate();
