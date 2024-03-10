@@ -6,7 +6,7 @@ import "./SelectionCard.css";
 import { Fragment, useState } from 'react'
 
 
-function SelectionCard(){
+const SelectionCard = ({ checked, onChange, label }) => {
 
     let [isOpen, setIsOpen] = useState(false);
 
@@ -20,12 +20,17 @@ function SelectionCard(){
         <>
             <div 
                 className="checkbox ma2"
-                onClick={openModal}
+                // onClick={openModal}
                 >
                 <label className="checkbox-wrapper">
-                    <input type="checkbox" class="checkbox-input" />
+                    <input 
+                        type="checkbox" 
+                        class="checkbox-input" 
+                        checked={checked}
+                        onChange={onChange}
+                    />
                     <span className="checkbox-tile">
-                        <span className="checkbox-label">CS3</span>
+                        <span className="checkbox-label mr4 ml4">{label}</span>
                     </span>
                 </label>
             </div>

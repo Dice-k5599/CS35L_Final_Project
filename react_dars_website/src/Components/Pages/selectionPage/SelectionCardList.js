@@ -50,7 +50,13 @@ const SelectionCardList = () => {
         <div className="flex flex-row flex-wrap">   
             {
                 classData.map((classItem, i) => (
-                    <SelectionCard />
+                    <div key={i}>
+                        <SelectionCard
+                            checked={completed[i]}
+                            onChange={()=>{handleCheckboxChange(i)}}
+                            label={classItem.classCode}
+                        />
+                    </div>
                 ))
             }     
             <SelectionCard />

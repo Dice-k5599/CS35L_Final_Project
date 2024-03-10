@@ -20,7 +20,7 @@ function Selectionfield(){
 
             {/* SelectionCardList compnenet will return a list of selectionCards aka checkboxes */}
             <p className="f2 b mt3">
-                Lower Division CS Courses
+                CS Courses
             </p>
             <SelectionCardList />
 

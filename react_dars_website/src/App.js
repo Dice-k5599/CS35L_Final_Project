@@ -14,15 +14,14 @@ import {
 
 // Components import
 import About from "./Components/Pages/About.js";
-import LoginForm from "./Components/Pages/login.js";
+import LoginForm from "./Components/Pages/loginPage/login.js";
 import Temp from "./Components/Pages/Temp.js";
 import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
 import SelectionPage from "./Components/Pages/selectionPage/SelectionPage.js";
-import MyDialog from "./Components/Pages/dashboard/MyDialog.js"
 
-import { Auth } from "./Components/auth.js";
-import { ClassReg } from "./Components/ClassReg.js";
-import { DisplayClasses } from "./Components/DisplayClasses.js";
+// import { Auth } from "./Components/Pages/loginPage/auth.js";
+// import { ClassReg } from "./Components/ClassReg.js";
+// import { DisplayClasses } from "./Components/DisplayClasses.js";
 
 
 function App() {
@@ -66,9 +65,9 @@ function App() {
             path="/"
             element={<LoginForm onGetClassList={getCLassList} />}
           />
-          <Route path="/about" element={<About />} />
-          <Route path="/temp" element={<Temp />} />
-          <Route path="/SelectionPage" element={<SelectionPage />}/>
+
+          <Route path="/selectionPage" element={<SelectionPage />}/>
+          <Route path="/dashboard" element={<DashBoard />}/>
         </Routes>
       </Router>
     </div>

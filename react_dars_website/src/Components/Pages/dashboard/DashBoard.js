@@ -12,7 +12,6 @@ function DashBoard(){
     return (
         <div className="">        
             <Navigationbar />
-            {/* <Example /> */}
             <Classfield />
 
         </div>
