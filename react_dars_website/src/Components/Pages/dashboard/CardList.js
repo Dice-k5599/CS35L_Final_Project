@@ -1,28 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Dialog, Transition } from '@headlessui/react'
 
 // components import
-import Navigationbar from "./Navbar";
 import Card from "./Card";
 
-function CardList(){
-    const navigate = useNavigate();
-
+const CardList = ({ classes }) => {
+    console.log(classes);
     return (
-        <div className="flex flex-row flex-wrap">        
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+        <div className="flex flex-row flex-wrap">   
+            {
+                classes.map((classItem, i) => (
+                    <div key={i}>
+                        <Card
+                            label={classItem.classCode}
+                        />
+                    </div>
+                ))
+            }     
         </div>
     );
 }

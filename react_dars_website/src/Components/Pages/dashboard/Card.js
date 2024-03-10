@@ -6,7 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 
-function Card(){
+function Card({ label }){
 
     let [isOpen, setIsOpen] = useState(false);
 
@@ -20,10 +20,12 @@ function Card(){
         <>
             <div>
                 <div
-                    className="m-2 w-32 h-16 shrink-0 rounded-md border-1 border-zinc-400 bg-state-50 flex justify-center items-center text-md font-medium text-zinc-400 hover:text-white hover:bg-ucla-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 active:bg-blue-600 transition duration-150 ease-in-out hover:scale-110"
+                    className="m-2 w-64 h-32 shrink-0 rounded-md border-1 border-zinc-400 bg-state-50 flex justify-center items-center text-md font-medium text-zinc-400 hover:text-white hover:bg-ucla-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 active:bg-blue-600 transition duration-150 ease-in-out hover:scale-110"
                     onClick={openModal}
                     >
-                    CS1
+                        <div className="mr4 ml4">
+                            {label}
+                        </div>
                 </div>
             </div>
 

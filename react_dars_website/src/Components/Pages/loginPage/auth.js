@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { auth, googleAuth } from "../../../config/firebase";
 import {
   createUserWithEmailAndPassword,

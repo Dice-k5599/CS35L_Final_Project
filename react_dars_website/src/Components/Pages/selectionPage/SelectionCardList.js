@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import getClassData from "./getClassData";
 
 // packages import
@@ -10,7 +9,6 @@ import { db, auth } from '../../../config/firebase'; // Assuming db is exported 
 import SelectionCard from "./SelectionCard";
 
 const SelectionCardList = () => {
-    const navigate = useNavigate();
 
     const [classData, setClassData] = useState([]);
     const [completed, setCompleted] = useState([]);
@@ -59,7 +57,6 @@ const SelectionCardList = () => {
                     </div>
                 ))
             }     
-            <SelectionCard />
         </div>
     );
 }
