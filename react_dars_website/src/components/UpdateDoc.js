@@ -2,6 +2,7 @@ import { useState } from "react";
 import { db, auth } from "../config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
 
+//Pass the classId, type of field you want to change, and the function to get the current class list
 export const UpdateDoc = ({ classId, updateType, onGetClassList }) => {
   const [updatedClassName, setUpdatedClassName] = useState("");
   const [updatedClassCode, setUpdatedClassCode] = useState("");

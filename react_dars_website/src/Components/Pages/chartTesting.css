@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Protest+Riot&display=swap');
+
+/* style for visual class */
+.chartBG{
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 221vh;
+    background: gray;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.chartBG h1{
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    text-transform: none;
+    text-decoration: none;
+    font-size: 36px;
+    text-align: center;
+
+}

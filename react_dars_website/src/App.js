@@ -4,15 +4,16 @@ import React, { Component, useEffect, useState } from "react";
 //import { robots } from "./robots";
 import "./App.css";
 
+// Path
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import About from "./Components/Pages/About.js";
-import LoginForm from "./Components/Pages/login.js";
-import Temp from "./Components/Pages/Temp.js";
-import Chart from "./Components/Pages/chartTesting.js"
+import About from "./components/Pages/About.js";
+import LoginForm from "./components/Pages/login.js";
+import Temp from "./components/Pages/Temp.js";
+import Chart from "./components/Pages/chartTesting.js"
 
-import { Auth } from "./Components/auth.js";
-import { ClassReg } from "./Components/ClassReg.js";
-import { DisplayClasses } from "./Components/DisplayClasses.js";
+//import { Auth } from "./Components/auth.js";
+//import { ClassReg } from "./Components/ClassReg.js";
+//import { DisplayClasses } from "./Components/DisplayClasses.js";
 import { db, auth } from "./config/firebase";
 import {
   getDocs,

@@ -12,15 +12,17 @@ import { FaLock } from "react-icons/fa";
 // Import the useNavigate to go through pages
 import { useNavigate } from "react-router-dom";
 
-import { Auth } from "../../Components/auth";
+import { Auth } from "../auth";
 
 const LoginForm = ({ onGetClassList }) => {
+  // Hook to utilize nevigation capability within React components
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginType, setLoginType] = useState("");
   const [fullName, setFullName] = useState("");
 
+  //This controls the visibility of Auth
   const [showAuth, setShowAuth] = useState(false);
   useEffect(() => {
     if (showAuth) {
@@ -29,10 +31,15 @@ const LoginForm = ({ onGetClassList }) => {
     }
   }, [showAuth]);
 
+  //Need to have this for the form tag so it doesn't reload itself on Google sign in
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="visualBG">
       <div className="wrapper">
-        <form action="">
+        <form onSubmit={handleSubmit} action="">
           {/* Heading 1 */}
           <h1>ClassSync</h1>
 
@@ -40,9 +47,9 @@ const LoginForm = ({ onGetClassList }) => {
           <div className="input-box">
             <input
               type="email"
-              placeholder="UCLA Username"
+              placeholder="Enter your UCLA email"
               required
-              onChange={(e) => setEmail(e.target.value + "@g.ucla.edu")}
+              onChange={(e) => setEmail(e.target.value)}
             />
             {/* Put the bear icon on */}
             <RiBearSmileLine className="icon" />
@@ -51,7 +58,7 @@ const LoginForm = ({ onGetClassList }) => {
           <div className="input-box">
             <input
               type="password"
-              placeholder="Passwords"
+              placeholder="Password"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -65,7 +72,14 @@ const LoginForm = ({ onGetClassList }) => {
             {/* link to forgot pw page */}
 
             {/* NEED CHANGE, so far the forgot link take to google homepage */}
-            <a href="https://www.google.com.tw/?hl=zh-TW"> Forgot Password?</a>
+            <button
+              onClick={() => {
+                setLoginType("reset");
+                setShowAuth(true);
+              }}
+            >
+              Forgot password?
+            </button>
           </div>
 
           {/* Login button takes to next page (Temp) */}
@@ -73,25 +87,18 @@ const LoginForm = ({ onGetClassList }) => {
             <button
               onClick={() => {
                 setLoginType("emailSignIn");
-                console.log("onClick is running");
                 setShowAuth(true);
+                console.log("onClick is running");
               }}
             >
               Login
             </button>
-            {showAuth && (
-              <Auth
-                loginType={loginType}
-                email={email}
-                password={password}
-                onGetClassList={onGetClassList}
-              />
-            )}
 
             {/* Google Login button takes to next page (Temp) */}
             <button
               onClick={() => {
-                navigate("/temp");
+                setLoginType("googleSignIn");
+                setShowAuth(true);
               }}
             >
               Continue with Google
@@ -103,9 +110,26 @@ const LoginForm = ({ onGetClassList }) => {
             {/* NEED CHANGE, so far the Register link take to YouTube homepage */}
             <p>
               Don't have an account?{" "}
-              <a href="https://www.youtube.com/"> Register</a>
+              <button
+                onClick={() => {
+                  setLoginType("signUp");
+                  setShowAuth(true);
+                }}
+              >
+                Register
+              </button>
             </p>
           </div>
+          {/*This block runs the Auth component with loginType indicating
+             what kind of function in Auth that we want to use*/}
+          {showAuth && (
+            <Auth
+              loginType={loginType}
+              email={email}
+              password={password}
+              onGetClassList={onGetClassList}
+            />
+          )}
         </form>
       </div>
     </div>
