@@ -9,6 +9,7 @@ import About from "./Components/Pages/About.js"
 import LoginForm from "./Components/Pages/login.js";
 import Temp from "./Components/Pages/Temp.js";
 import ClassSelection from "./Components/Pages/ClassSelection.js";
+import ClassDisplay from "./Components/Pages/ClassDisplay";
 
 //import { Auth } from "./Components/auth.js";
 //import { ClassReg } from "./Components/ClassReg.js";
@@ -66,6 +67,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/temp" element={<Temp />} />
           <Route path="/ClassSelection" element={<ClassSelection/>}/>
+          <Route path="/ClassDisplay" element={<ClassDisplay/>}/>
         </Routes>
       </Router>
     </div>

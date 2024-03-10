@@ -18,7 +18,13 @@ function Temp(){
                     navigate("/ClassSelection");
                 }}>
                     Go to Class Select
-                </button>
+            </button>
+            <button onClick={()=>{
+                navigate("/ClassDisplay")
+            }}>
+                Go to List of Classes
+            </button>
+
         </div>
     );
 }

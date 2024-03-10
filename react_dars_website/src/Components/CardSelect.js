@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { updateDoc, doc } from 'firebase/firestore';
 import getClassData from './getClassData';
-import { db, auth } from '../config/firebase'; // Assuming db is exported from firebase config
+import { db, auth } from '../config/firebase';
 import SelectionCard from './Pages/selectionPage/SelectionCard';
 
 const CardSelect = () => {
