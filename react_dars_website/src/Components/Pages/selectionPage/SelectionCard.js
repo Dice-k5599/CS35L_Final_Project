@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./SelectionCard.css";
 
-import { Dialog, Transition } from '@headlessui/react'
+// import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 

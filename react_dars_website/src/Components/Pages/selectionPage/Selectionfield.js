@@ -17,11 +17,14 @@ function Selectionfield(){
                     Select courses you have taken in the past. Based on your current progression, we will suggest courses you could take in the next quarter and in the future. 
                 </p>    
             </div>  
+
+            {/* SelectionCardList compnenet will return a list of selectionCards aka checkboxes */}
             <p className="f2 b mt3">
                 Lower Division CS Courses
             </p>
             <SelectionCardList />
-            <p className="f2 b mt3">
+
+            {/* <p className="f2 b mt3">
                 General Education Courses
             </p>
             <SelectionCardList />
@@ -36,7 +39,7 @@ function Selectionfield(){
             <p className="f2 b mt3">
                 Sci Tech Courses
             </p>
-            <SelectionCardList />
+            <SelectionCardList /> */}
         </div>
     );
 }

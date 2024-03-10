@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 // components import
 import Navigationbar from "./Navbar";
-import Example from "./Navbar2";
 import Classfield from "./Classfield";
 
 function DashBoard(){
