@@ -60,17 +60,15 @@ function App() {
 
       <DisplayClasses classList={classList} onGetClassList={getCLassList} />*/}
 
-      <Router>
+<Router>
         <Routes>
-          {/* <Route
+          <Route
             path="/"
             element={<LoginForm onGetClassList={getCLassList} />}
           />
           <Route path="/about" element={<About />} />
           <Route path="/temp" element={<Temp />} />
-          <Route path="/DashBoard" element={<DashBoard />} /> */}
-          {/* <Route path="/" element={<DashBoard />} /> */}
-          <Route path="/" element={<SelectionPage />} />
+          <Route path="/SelectionPage" element={<SelectionPage />}/>
         </Routes>
       </Router>
     </div>

@@ -78,7 +78,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     try {
       await signInWithPopup(auth, googleAuth);
       console.log("google sign in success");
-      navigate("/DashBoard");
+      navigate("/temp");
       //alert("You are logged in");
     } catch (err) {
       console.log(err);
