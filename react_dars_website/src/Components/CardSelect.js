@@ -4,7 +4,7 @@ import getClassData from './getClassData';
 import { db, auth } from '../config/firebase'; // Assuming db is exported from firebase config
 import SelectionCard from './Pages/selectionPage/SelectionCard';
 
-const CheckboxList = () => {
+const CardSelect = () => {
     const [classData, setClassData] = useState([]);
     const [completed, setCompleted] = useState([]);
 
@@ -57,4 +57,4 @@ const CheckboxList = () => {
     );
 };
 
-export default CheckboxList;
+export default CardSelect;

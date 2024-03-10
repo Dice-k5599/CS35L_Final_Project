@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import CheckboxList from "../CardSelect";
+import CardSelect from "../CardSelect";
 
 function ClassSelection(){
     const navigate = useNavigate();
     return(
         <div>
-            <CheckboxList/>
+            <CardSelect/>
             <button onClick={() => {
                     navigate("/temp");
                 }}>
