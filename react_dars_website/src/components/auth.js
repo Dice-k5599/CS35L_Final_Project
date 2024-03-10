@@ -4,23 +4,19 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  sendEmailVerification,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { ResetPassword } from "./ResetPassword";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { addDefaultClass } from "./AddDefaultClass";
 
 export const Auth = ({ loginType, email, password, onGetClassList }) => {
   console.log("Auth is running");
   const navigate = useNavigate();
-
-  /*
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [fullName, setFullName] = useState("");
-  */
 
   const handleSetClassList = () => {
     onGetClassList();
@@ -34,15 +30,29 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
         email,
         password
       );
+
+      //sign the user out so they can't login yet.
+      //await signOut(auth);
+      alert("You are signed out");
+
+      //Send the verification email right after signing up
       const user = studentCred.user;
+      try {
+      await sendEmailVerification(user);
+      alert("email verification sent. Please confirm the email before signing in!");
+    } catch (err) {
+      alert("Something went wrong while sending the email verification link, please refresh the page and try again");
+    };
+
       await setDoc(doc(db, "students", user.uid), {
         email: user.email,
+        verified: false
         //fullName: fullName,
       });
+      await addDefaultClass(`students/${user.uid}/classes`);
+
       handleSetClassList();
       console.log("User created and document added to Firestore");
-      navigate("/temp");
-      //alert("You are logged in");
     } catch (err) {
       console.log(err);
       alert("Sign-up error: " + err);
@@ -50,35 +60,47 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   };
 
   const signIn = async () => {
-    console.log(email, password);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const studentCred = await signInWithEmailAndPassword(auth, email, password);
+      const user = studentCred.user;
+      /*if (user && !user.emailVerified) {
+        await signOut(auth);
+        alert("Please verify your email before signing in! We have sent a new email verification link.");
+        await sendEmailVerification(user);
+      }
+      else */if(user){
+        const userDocRef = doc(db, "students", user.uid);
+        console.log("updating user verified flag");
+        await updateDoc(userDocRef, {
+          verified: true
+        })
       handleSetClassList();
       console.log("You are logged in");
-      navigate("/temp");
-      return true;
+      navigate("/SelectionPage");
+      }
     } catch (err) {
       console.log(err);
-      console.log("Sign-in error: " + err);
+      alert("Invalid username or password, try again or reset password");
     }
   };
 
-  const resetPassword = async (email) => {
-    console.log("Block google is running");
-    alert("Password is successfully reset");
+  const resetPassword = async () => {
+    console.log("Block reset is running");
+    //alert("Password is successfully reset");
     try {
       await sendPasswordResetEmail(auth, email);
     } catch (err) {
       console.log(err);
-      alert("Reset error: " + err);
+      //alert("Reset error: " + err);
     }
   };
 
   const signInWithGoogle = async () => {
+    console.log("Google sign in is running");
     try {
       await signInWithPopup(auth, googleAuth);
-      console.log("google sign in success");
-      navigate("/temp");
+      console.log(email, password);
+      navigate("/SelectionPage");
       //alert("You are logged in");
     } catch (err) {
       console.log(err);
@@ -96,39 +118,13 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       alert("Sign-out error: " + err);
     }
   };
-  if (loginType == "emailSignIn") {
+  if (loginType === "emailSignIn") {
     signIn();
-  } else if (loginType == "googleSignIn") {
+  } else if (loginType === "googleSignIn") {
     signInWithGoogle();
-  } else if (loginType == "signUp") {
+  } else if (loginType === "signUp") {
     signUp();
+  } else if (loginType === "reset") {
+    resetPassword();
   }
-
-  /*
-  return (
-    <div>
-      <input
-        placeholder="Type your ucla username..."
-        type="email"
-        onChange={(e) => setEmail(e.target.value + "@g.ucla.edu")}
-      ></input>
-      <input
-        placeholder="insert password..."
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-      ></input>
-      <input
-        placeholder="insert full name..."
-        type="text"
-        onChange={(e) => setFullName(e.target.value)}
-      ></input>
-      <button onClick={signUp}> Sign up</button>
-      <button onClick={signIn}> Sign in</button>
-      <ResetPassword onReset={resetPassword} />
-      <div>
-        <button onClick={signInWithGoogle}>Sign in with Google</button>
-        <button onClick={logOut}> Sign out</button>
-      </div>
-    </div>
-  );*/
 };
