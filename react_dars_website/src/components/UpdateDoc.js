@@ -27,7 +27,6 @@ export const UpdateDoc = ({ classId, updateType, onGetClassList }) => {
         console.log("2321312323");
         await updateDoc(classDoc, { availability: data });
       }
-      //await updateDoc(classDoc, { className: name });
       onGetClassList();
     } catch (err) {
       console.log(err);
@@ -45,10 +44,11 @@ export const UpdateDoc = ({ classId, updateType, onGetClassList }) => {
     } else if (type === "availability") {
       console.log(updatedClassAvailability);
       updateClass(classId, updatedClassAvailability, type);
-      //console.log(updateClassAvailability);
     }
     //onUpdate(classId, updatedClassName);
   };
+
+  
 
   return (
     <div>

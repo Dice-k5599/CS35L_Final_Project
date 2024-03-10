@@ -83,7 +83,6 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
 
   const resetPassword = async () => {
     console.log("Block reset is running");
-    //alert("Password is successfully reset");
     try {
       await sendPasswordResetEmail(auth, email);
     } catch (err) {
@@ -95,13 +94,26 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   const signInWithGoogle = async () => {
     console.log("Google sign in is running");
     try {
-      await signInWithPopup(auth, googleAuth);
-      console.log(email, password);
+      const studentCred = await signInWithPopup(auth, googleAuth);
+      const user = studentCred.user;
+      if (user && !user.emailVerified) {
+        await signOut(auth);
+        alert("Please verify your email before signing in! We have sent a new email verification link.");
+        await sendEmailVerification(user);
+      }
+      else { 
+        const userDocRef = doc(db, "students", user.uid);
+        console.log("updating user verified flag");
+        await updateDoc(userDocRef, {
+          verified: true
+        })
+      handleSetClassList();
+      console.log("You are logged in");
       navigate("/temp");
-      //alert("You are logged in");
+      }
     } catch (err) {
       console.log(err);
-      alert("Google sign-in error: " + err);
+      alert("Something went wrong with Google sign-in, consider the other sign-in method or try again");
     }
   };
 
@@ -112,7 +124,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       handleSetClassList();
     } catch (err) {
       console.log(err);
-      alert("Sign-out error: " + err);
+      alert("Something went wrong and you are still signed in, try again or close the tab to log out");
     }
   };
   if (loginType === "emailSignIn") {
