@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Protest+Riot&display=swap');
-
+  
 /* style for visual class */
 .visualBG{
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -9,15 +10,55 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../../Assets/loginWP.jpg') no-repeat center center fixed;
+    flex-direction: column;
+    background: url('../../Assets/249736_Powell_Library_Reading_Room.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
+.text-pop-up-top {
+	animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    font-size: 5rem; /* Adjust the size of the title */
+    color: #fff;
+    position: relative;
+    top: -140px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+@keyframes slide-in-blurred-top {
+    0% {
+      transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+      transform-origin: 50% 0%;
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scaleY(1) scaleX(1);
+      transform-origin: 50% 50%;
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  
+
+/*Adjust side by side forms*/
+.forms-container {
+    display: flex;
+    justify-content: space-around; /* Adjusts the space between the forms */
+    align-items: start; /* Aligns forms at the top */
+    text-align: center;
+  }
 /* style for wrapper class */
 .wrapper{
+    animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    flex-basis: 45%;
+    margin: 0 150px;
+    position: relative;
+    top: -20px;
     width: 420px;
     background: rgba(100, 100, 100, 0.6);
     /* (Alt)
@@ -28,6 +69,21 @@
     border-radius: 10px; 
     padding: 30px 40px;
 }
+
+@keyframes slide-in-blurred-bottom {
+    0% {
+      transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+      transform-origin: 50% 100%;
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scaleY(1) scaleX(1);
+      transform-origin: 50% 50%;
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
 
 .wrapper h1{
     font-family: 'Poppins', sans-serif;

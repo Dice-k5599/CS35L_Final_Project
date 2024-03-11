@@ -69,7 +69,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
         await sendEmailVerification(user);
       }
       else */if(user){
-        const userDocRef = doc(db, "students", user.uid);
+        const userDocRef = doc(db, "students", user.uid); 
         console.log("updating user verified flag");
         await updateDoc(userDocRef, {
           verified: true
