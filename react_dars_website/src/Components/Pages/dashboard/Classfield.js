@@ -21,18 +21,12 @@ const Classfield = () => {
                 // these two functions will filter out the data array so that
                 // completedCourses will hold all courses user have completed
                 // and unCompletedCourses will hold all courses user haven't completed
-                const complete = data.filter((item) => {
+                setCompletedClasses(data.filter((item) => {
                     return item.completed === true;
-                })
-                const unComplete = data.filter((item) => {
+                }))
+                setUnCompletedClasses(data.filter((item) => {
                     return item.completed === false;
-                })
-
-                setCompletedClasses(complete);
-                setUnCompletedClasses(unComplete);
-
-                console.log(completedClasses);
-                console.log(unCompletedClasses);
+                }))
             } catch (error) {
                 console.error('Error fetching classes data:', error);
             }

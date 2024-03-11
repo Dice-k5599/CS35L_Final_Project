@@ -13,11 +13,9 @@ import {
 } from "firebase/firestore";
 
 // Components import
-import About from "./Components/Pages/About.js";
-import LoginForm from "./Components/Pages/loginPage/login.js";
-import Temp from "./Components/Pages/Temp.js";
-import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
-import SelectionPage from "./Components/Pages/selectionPage/SelectionPage.js";
+import LoginForm from "./components/Pages/loginPage/login.js";
+import DashBoard from "./components/Pages/dashboard/DashBoard.js";
+import SelectionPage from "./components/Pages/selectionPage/SelectionPage.js";
 
 // import { Auth } from "./Components/Pages/loginPage/auth.js";
 // import { ClassReg } from "./Components/ClassReg.js";
