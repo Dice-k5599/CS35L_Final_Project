@@ -99,7 +99,7 @@ export const ClassData = [
         units: 3,
     },
     {
-        className: '',
+        className: 'Differential Equations',
         classCode: 'Math 33B',
         availability: true,
         prereq: [],
@@ -108,31 +108,34 @@ export const ClassData = [
         units: 3,
     },
     {
-        className: '',
+        className: 'Introduction to Discrete Structures',
         classCode: 'Math 61',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, three hours; discussion, one hour. Requisites: courses 31A, 31B. Not open for credit to students with credit for course 180 or 184. Discrete structures commonly used in computer science and mathematics, including sets and relations, permutations and combinations, graphs and trees, induction. P/NP or letter grading'
     },
     {
-        className: '',
+        className: 'Physics for Scientists and Engineers: Mechanics',
         classCode: 'Physics 1A',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 5,
+        description: 'Lecture/demonstration, four hours; discussion, one hour. Enforced requisites: Mathematics 31A, 31B. Enforced corequisite: Mathematics 32A. Motion, Newton laws, work, energy, linear and angular momentum, rotation, equilibrium, gravitation. P/NP or letter grading.'
     },
     {
-        className: '',
+        className: 'Physics for Scientists and Engineers: Oscillations, Waves, Electric and Magnetic Fields',
         classCode: 'Physics 1B',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
         units: 3,
+        description: 'Lecture/demonstration, four hours; discussion, one hour. Enforced requisites: course 1A, Mathematics 31B, 32A. Enforced corequisite: Mathematics 32B. Fluid mechanics, oscillation, mechanical waves, and sound. Electric charge, field and potential, capacitors, and dielectrics. Currents and resistance, direct-current circuits. P/NP or letter grading.'
     },
     {
         className: '',
