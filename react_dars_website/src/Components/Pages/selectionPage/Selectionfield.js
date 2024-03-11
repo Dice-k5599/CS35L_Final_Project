@@ -12,6 +12,7 @@ import SelectionCardList from "./SelectionCardList";
 const Selectionfield = () => {
     const [classData, setClassData] = useState([]);
     const [completed, setCompleted] = useState([]);
+
     const [lowerDivClasses, setLowerDivClasses] = useState([]);
     const [lowerDivCompleted, setLowerDivCompleted] = useState([]);
     const [upperDivClasses, setUpperDivClasses] = useState([]);
@@ -25,7 +26,6 @@ const Selectionfield = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log('useeffect entered');
             try {
                 const data = await getClassData();
                 setClassData(data);
