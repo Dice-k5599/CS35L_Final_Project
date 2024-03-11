@@ -8,19 +8,10 @@ import { Fragment, useState } from 'react'
 
 const SelectionCard = ({ checked, onChange, label }) => {
 
-    let [isOpen, setIsOpen] = useState(false);
-
-    function closeModal() {
-        setIsOpen(false);
-    }
-    function openModal() {
-        setIsOpen(true);
-    }
     return (
         <>
             <div 
                 className="checkbox ma2"
-                // onClick={openModal}
                 >
                 <label className="checkbox-wrapper">
                     <input 

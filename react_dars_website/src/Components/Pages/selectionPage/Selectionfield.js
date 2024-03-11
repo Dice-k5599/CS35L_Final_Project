@@ -25,6 +25,7 @@ const Selectionfield = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            console.log('useeffect entered');
             try {
                 const data = await getClassData();
                 setClassData(data);
@@ -64,16 +65,65 @@ const Selectionfield = () => {
     }, []);
     
 
-    const handleCheckboxChange = async (index) => {
-        const updatedCompleted = [...completed]; // Create a copy of completed state array
-        updatedCompleted[index] = !completed[index]; // Toggle the completed state at the given index
-        setCompleted(updatedCompleted); // Update the completed state
+    // since we have five lists, a simple index access to classData array will not update firebase database correctly. 
+    // This is because when for example, index 1 is passed as argument to this handleCheckboxChange function, the 
+    // corresponding class is ambiguous because there are 5 classes that could have index 1 (again because 5 lists). 
+    // We have to pass on another parameter classType so that we know exactly which class to modify
+
+    const handleCheckboxChange = async (index, classType) => {
+        const updatedCompleted2 = [...completed]; // Create a copy of completed state array
+        updatedCompleted2[index] = !completed[index]; // Toggle the completed state at the given index
+        setCompleted(updatedCompleted2); // Update the completed state
+
+        let targetList;
+        let targetCompletedValue;
+        let updatedCompleted;
+    
+        switch (classType) {
+            case "LowerDiv":
+                targetList = lowerDivClasses;
+                updatedCompleted = [...lowerDivCompleted];
+                updatedCompleted[index] = !lowerDivCompleted[index];
+                setLowerDivCompleted(updatedCompleted);
+                targetCompletedValue = !lowerDivCompleted[index];
+                break;
+            case "UpperDiv":
+                targetList = upperDivClasses;
+                updatedCompleted = [...upperDivCompleted];
+                updatedCompleted[index] = !upperDivCompleted[index];
+                setUpperDivCompleted(updatedCompleted);
+                targetCompletedValue = !upperDivCompleted[index];
+                break;
+            case "TechBreadth":
+                targetList = techBreadthClasses;
+                updatedCompleted = [...techBreadthCompleted];
+                updatedCompleted[index] = !techBreadthCompleted[index];
+                setTechBreadthCompleted(updatedCompleted);
+                targetCompletedValue = !techBreadthCompleted[index];
+                break;
+            case "SciTech":
+                targetList = sciTechClasses;
+                updatedCompleted = [...sciTechCompleted];
+                updatedCompleted[index] = !sciTechCompleted[index];
+                setSciTechCompleted(updatedCompleted);
+                targetCompletedValue = !techBreadthCompleted[index];
+                break;
+            case "Elective":
+                targetList = electiveClasses;
+                updatedCompleted = [...electiveCompleted];
+                updatedCompleted[index] = !electiveCompleted[index];
+                setElectiveCompleted(updatedCompleted);
+                targetCompletedValue = !electiveCompleted[index];
+                break;
+            default:
+                break;
+        }
 
         // Update Firestore document
         try {
-            const classDocRef = doc(db, "students", auth.currentUser?.uid, "classes", classData[index].id);
+            const classDocRef = doc(db, "students", auth.currentUser?.uid, "classes", targetList[index].id);
             await updateDoc(classDocRef, {
-                completed: updatedCompleted[index]
+                completed: targetCompletedValue
             });
             console.log("Document successfully updated!");
         } catch (error) {

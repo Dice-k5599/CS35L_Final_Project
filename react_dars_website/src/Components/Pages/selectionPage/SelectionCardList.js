@@ -17,7 +17,7 @@ const SelectionCardList = ({ classes, completed, handleCheckboxChange }) => {
                     <div key={i}>
                         <SelectionCard
                             checked={completed[i]}
-                            onChange={()=>{handleCheckboxChange(i)}}
+                            onChange={()=>{handleCheckboxChange(i, classItem.classType)}}
                             label={classItem.classCode}
                         />
                     </div>
