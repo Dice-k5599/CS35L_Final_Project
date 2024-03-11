@@ -90,29 +90,30 @@ export const ClassData = [
         description: 'Lecture, three hours; discussion, one hour. Enforced requisites: courses 31B and 32A, with grades of C- or better. Introduction to integral calculus of several variables, line and surface integrals. P/NP or letter grading.'
     },
     {
-        className: 'Integration and Infinite Series',
+        className: 'Linear Algebra and Applications',
         classCode: 'Math 33A',
         availability: true,
         prereq: ['Math 31B'],
         completed: false,
         grade: 0,
-        units: 3,
-        description: 
+        units: 4,
+        description:'Lecture, three hours; discussion, one hour. Enforced requisite: course 3B or 31B or 32A with grade of C- or better. Introduction to linear algebra: systems of linear equations, matrix algebra, linear independence, subspaces, bases and dimension, orthogonality, least-squares methods, determinants, eigenvalues and eigenvectors, matrix diagonalization, and symmetric matrices. P/NP or letter grading.'
     },
     {
         className: 'Differential Equations',
         classCode: 'Math 33B',
         availability: true,
-        prereq: [],
+        prereq: ['Math 31B'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, three hours; discussion, one hour. Enforced requisite: course 31B with grade of C- or better. Highly recommended: course 33A. First-order, linear differential equations; second-order, linear differential equations with constant coefficients; power series solutions; linear systems. P/NP or letter grading.'
     },
     {
         className: 'Introduction to Discrete Structures',
         classCode: 'Math 61',
         availability: true,
-        prereq: [],
+        prereq: ['Math 31A', 'Math 31B'],
         completed: false,
         grade: 0,
         units: 4,
@@ -122,7 +123,7 @@ export const ClassData = [
         className: 'Physics for Scientists and Engineers: Mechanics',
         classCode: 'Physics 1A',
         availability: true,
-        prereq: [],
+        prereq: ['Math 32A'],
         completed: false,
         grade: 0,
         units: 5,
@@ -132,20 +133,21 @@ export const ClassData = [
         className: 'Physics for Scientists and Engineers: Oscillations, Waves, Electric and Magnetic Fields',
         classCode: 'Physics 1B',
         availability: true,
-        prereq: [],
+        prereq: ['Physics 1A', 'Math 31B', 'Math 32A'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 5,
         description: 'Lecture/demonstration, four hours; discussion, one hour. Enforced requisites: course 1A, Mathematics 31B, 32A. Enforced corequisite: Mathematics 32B. Fluid mechanics, oscillation, mechanical waves, and sound. Electric charge, field and potential, capacitors, and dielectrics. Currents and resistance, direct-current circuits. P/NP or letter grading.'
     },
     {
-        className: '',
+        className: 'Physics for Scientists and Engineers: Electrodynamics, Optics, and Special Relativity',
         classCode: 'Physics 1C',
         availability: true,
-        prereq: [],
+        prereq: ['Physics 1A', 'Physics 1B', 'Math 32A', 'Math 32B'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 5,
+        description: 'Lecture/demonstration, four hours; discussion, one hour. Enforced requisites: course 1A, 1B, Mathematics 32A, 32B. Enforced corequisite: Mathematics 33A. Magnetic fields, Ampere\'s law, Faraday\'s law, inductance, and alternating current circuits. Maxwell\'s equations, electromagnetic waves, light, geometrical optics, interference and diffraction. Special relativity. P/NP or letter grading.'
     },
     {
         className: '',
