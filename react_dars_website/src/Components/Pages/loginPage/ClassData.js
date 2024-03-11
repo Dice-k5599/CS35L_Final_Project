@@ -150,94 +150,114 @@ export const ClassData = [
         description: 'Lecture/demonstration, four hours; discussion, one hour. Enforced requisites: course 1A, 1B, Mathematics 32A, 32B. Enforced corequisite: Mathematics 33A. Magnetic fields, Ampere\'s law, Faraday\'s law, inductance, and alternating current circuits. Maxwell\'s equations, electromagnetic waves, light, geometrical optics, interference and diffraction. Special relativity. P/NP or letter grading.'
     },
     {
-        className: '',
+        className: 'Physics Laboratory for Scientists and Engineers: Mechanics OR Electricity and Magnetism',
         classCode: 'Physics 4AL or 4BL',
         availability: true,
-        prereq: [],
+        prereq: ['Physics 1A'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 2,
+        description: 'Laboratory, four hours. Enforced requisite: course 1A or 1AH. Enforced corequisite: course 1B or 1BH. Computerized measurements of uniform and accelerated motion, including oscillations. Analysis of data and comparison of results to predictions, including least-squares fitting. Conception, execution, and presentation of creative projects involving motion. Letter grading.\nAlternative: Laboratory, four hours. Enforced requisites: courses 1A or 1AH, 1B or 1BH. Enforced corequisite: course 1C or 1CH. Sound waves and electric circuits, taken by digital oscilloscopes and analyzed by Fourier transformation. Geometrical and physical optics. Conception, execution, and presentation of creative projects involving sound waves or electric circuits. Letter grading.'
     },
     {
-        className: '',
+        className: 'Operating Systems Principles',
         classCode: 'CS 111',
         availability: true,
-        prereq: [],
+        prereq: ['CS 32','CS 33','CS 35L'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 5,
+        description: 'Lecture, four hours; laboratory, two hours; outside study, nine hours. Enforced requisites: courses 32, 33, 35L. Introduction to operating systems design and evaluation. Computer software systems performance, robustness, and functionality. Kernel structure, bootstrapping, input/output (I/O) devices and interrupts. Processes and threads; address spaces, memory management, and virtual memory. Scheduling, synchronization. File systems: layout, performance, robustness. Distributed systems: networking, remote procedure call (RPC), asynchronous RPC, distributed file systems, transactions. Protection and security. Exercises involving applications using, and internals of, real-world operating systems. Letter grading.'
     },
     {
-        className: '',
+        className: 'Computer Network Fundamentals',
         classCode: 'CS 118',
         availability: true,
-        prereq: [],
+        prereq: ['CS 111'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, four hours; discussion, two hours; outside study, six hours. Enforced requisite: course 111. Designed for juniors/seniors. Introduction to design and performance evaluation of computer networks, including such topics as what protocols are, layered network architecture, Internet protocol architecture, network applications, transport protocols, routing algorithms and protocols, internetworking, congestion control, and link layer protocols including Ethernet and wireless channels. Letter grading'
     },
     {
-        className: '',
+        className: 'Programming Languages',
         classCode: 'CS 131',
         availability: true,
-        prereq: [],
+        prereq: ['CS 33', 'CS 35L'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, four hours; laboratory, two hours; outside study, six hours. Enforced requisites: courses 33, 35L. Basic concepts in design and use of programming languages, including abstraction, modularity, control mechanisms, types, declarations, syntax, and semantics. Study of several different language paradigms, including functional, object-oriented, and logic programming. Letter grading.'
     },
     {
-        className: '',
+        className: 'Computer Systems Architecture',
         classCode: 'CS M151B or ECE M116C',
         availability: true,
-        prereq: [],
+        prereq: ['CS 33', 'CS M51A or ECE M16'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, four hours; discussion, two hours; outside study, six hours. Enforced requisites: courses 33, and M51A or Electrical and Computer Engineering M16. Recommended: courses 111, and M152A or Electrical and Computer Engineering M116L. Computer system organization and design, implementation of CPU datapath and control, instruction set design, memory hierarchy (caches, main memory, virtual memory) organization and management, input/output subsystems (bus structures, interrupts, DMA), performance evaluation, pipelined processors. Letter grading.'
     },
     {
-        className: '',
+        className: 'Introductory Digital Design Laboratory',
         classCode: 'CS M152A or ECE M116L',
         availability: true,
-        prereq: [],
+        prereq: ['CS M51A or ECE M16'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 2,
+        description:'Laboratory, four hours; outside study, two hours. Enforced requisite: course M51A or Electrical and Computer Engineering M16. Hands-on design, implementation, and debugging of digital logic circuits, use of computer-aided design tools for schematic capture and simulation, implementation of complex circuits using programmed array logic, design projects. Letter grading.'
     },
     {
-        className: '',
+        className: 'Introduction to Algorithms and Complexity',
         classCode: 'CS 180',
         availability: true,
-        prereq: [],
+        prereq: ['CS 32','Math 61'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, four hours; discussion, two hours; outside study, six hours. Enforced requisites: course 32, Mathematics 61. Designed for junior/senior Computer Science majors. Introduction to design and analysis of algorithms. Design techniques: divide-and-conquer, greedy method, dynamic programming; selection of prototypical algorithms; choice of data structures and representations; complexity measures: time, space, upper, lower bounds, asymptotic complexity; NP-completeness. Letter grading.'
     },
     {
-        className: '',
+        className: 'Theory of Computing',
         classCode: 'CS 181',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, four hours; discussion, two hours; outside study, six hours. Enforced requisite: course 180. Designed for junior/senior Computer Science majors. Finite state machines, context-free languages, and pushdown automata. Closure properties and pumping lemmas. Turing machines, undecidability. Introduction to computability. Letter grading.'
     },
     {
-        className: '',
-        classCode: 'CS 130 or 152B',
+        className: 'Software Engineering',
+        classCode: 'CS 130 152B',
         availability: true,
-        prereq: [],
+        prereq: ['CS 111', 'CS 131'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, four hours; laboratory, two hours; outside study, six hours. Requisites: courses 111, 131. Recommended requisite: Engineering 183EW or 185EW. Structured programming, program specification, program proving, modularity, abstract data types, composite design, software tools, software control systems, program testing, team programming. Letter grading.'
     },
     {
-        className: '',
-        classCode: 'Statisitics (Stats 100A, Math 170A, Math 170E ECE 131A, CEE 110)',
+        className: 'Digital Design Project Laboratory',
+        classCode: 'CS 152B',
         availability: true,
-        prereq: [],
+        prereq: ['CS M151B or ECE M116C'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Laboratory, four hours; discussion, two hours; outside study, six hours. Enforced requisite: course M151B or Electrical Engineering M116C. Recommended: Engineering 183EW or 185EW. Limited to seniors. Design and implementation of complex digital subsystems using field-programmable gate arrays (e.g., processors, special-purpose processors, device controllers, and input/output interfaces). Students work in teams to develop and implement designs and to document and give oral presentations of their work. Letter grading.'
+    },
+    {
+        className: 'Statisitics',
+        classCode: 'Stats 100A or Math 170A or Math 170E or ECE 131A or CEE 110)',
+        availability: true,
+        prereq: ['Math 32B', 'Math 33A'],
+        completed: false,
+        grade: 0,
+        units: 4,
+        description: 'One of following required statistics classes'
     },
     {
         className: '',
@@ -246,7 +266,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'One of the following electives'
     },
     {
         className: '',
@@ -255,7 +276,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'One of the following electives'
     },
     {
         className: '',
@@ -264,7 +286,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'One of the following electives'
     },
     {
         className: '',
@@ -273,7 +296,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'One of the following electives'
     },
     {
         className: '',
@@ -282,7 +306,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'One of the following electives'
     },
     {
         className: '',
@@ -291,7 +316,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'TBR'
     },
     {
         className: '',
@@ -300,7 +326,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'TBR'
     },
     {
         className: '',
@@ -309,7 +336,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'TBR'
     },
     {
         className: '',
@@ -318,7 +346,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Need to choose 3 Sci-Tech Classes'
     },
     {
         className: '',
@@ -327,7 +356,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Need to choose 3 Sci-Tech Classes'
     },
     {
         className: '',
@@ -336,6 +366,7 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Need to choose 3 Sci-Tech Classes'
     },
     ];
