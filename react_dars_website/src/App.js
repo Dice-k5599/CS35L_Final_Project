@@ -1,11 +1,8 @@
 import React, { Component, useEffect, useState } from "react";
-//import CardList from "./CardList";
-//import SearchBox from "./SearchBox";
-//import { robots } from "./robots";
 import "./App.css";
-import { Auth } from "./components/auth";
-import { ClassReg } from "./components/ClassReg";
-import { DisplayClasses } from "./components/DisplayClasses";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// firebase related imports
 import { db, auth } from "./config/firebase";
 import {
   getDocs,
@@ -14,6 +11,18 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+
+// Components import
+import About from "./Components/Pages/About.js";
+import LoginForm from "./Components/Pages/loginPage/login.js";
+import Temp from "./Components/Pages/Temp.js";
+import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
+import SelectionPage from "./Components/Pages/selectionPage/SelectionPage.js";
+
+// import { Auth } from "./Components/Pages/loginPage/auth.js";
+// import { ClassReg } from "./Components/ClassReg.js";
+// import { DisplayClasses } from "./Components/DisplayClasses.js";
+
 
 function App() {
   const [classList, setClassList] = useState([]);
@@ -43,50 +52,25 @@ function App() {
   }, []);
 
   return (
-    <div className="">
+    <div className="App">
+      {/*
       <Auth onGetClassList={getCLassList} />
       <ClassReg onGetClassList={getCLassList} />
 
-      <DisplayClasses classList={classList} onGetClassList={getCLassList} />
+      <DisplayClasses classList={classList} onGetClassList={getCLassList} />*/}
+
+<Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<LoginForm onGetClassList={getCLassList} />}
+          />
+
+          <Route path="/selectionPage" element={<SelectionPage />}/>
+          <Route path="/dashboard" element={<DashBoard />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
-
-//Daisuke's code for Basketball portion below
-/*
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      // state is something that could change
-      robots: robots,
-      searchfield: "",
-    };
-  }
-
-  componentDidMount() {}
-
-  onSearchChange = (event) => {
-    this.setState({ searchfield: event.target.value }); //need to do this instead of this.state.searchfield = value
-  };
-
-  render() {
-    const filteredRobots = this.state.robots.filter((robot) => {
-      return robot.name
-        .toLowerCase()
-        .includes(this.state.searchfield.toLowerCase());
-    });
-
-    return (
-      <div className="tc">
-        <h1>
-          <strong>Lakers Players Index</strong>
-        </h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <CardList robots={filteredRobots} />
-      </div>
-    );
-  }
-}
-*/
 export default App;
