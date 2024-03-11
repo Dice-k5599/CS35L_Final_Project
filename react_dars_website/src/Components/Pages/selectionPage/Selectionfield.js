@@ -106,7 +106,7 @@ const Selectionfield = () => {
                 updatedCompleted = [...sciTechCompleted];
                 updatedCompleted[index] = !sciTechCompleted[index];
                 setSciTechCompleted(updatedCompleted);
-                targetCompletedValue = !techBreadthCompleted[index];
+                targetCompletedValue = !sciTechCompleted[index];
                 break;
             case "Elective":
                 targetList = electiveClasses;
