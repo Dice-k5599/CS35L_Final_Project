@@ -10,13 +10,6 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'MyCourses', href: '#', current: false },
-    { name: 'MyUCLA', href: '#', current: false },
-    { name: 'DARS', href: '#', current: false },
-  ]
-
 function Navigationbar(){
     const navigate = useNavigate();
 
@@ -27,7 +20,7 @@ function Navigationbar(){
     return (
         <>
             <Navbar id="navbar" fixed="top" data-bs-theme="dark" className="">
-                <Navbar.Brand href="#home" className="ml-10 white">Home</Navbar.Brand>
+                <Navbar.Brand href="#" className="ml-10 white">Home</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link 
                         href="#Dashboard" 
