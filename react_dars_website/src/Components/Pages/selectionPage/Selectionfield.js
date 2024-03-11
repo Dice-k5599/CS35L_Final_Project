@@ -23,36 +23,6 @@ const Selectionfield = () => {
     const [electiveClasses, setElectiveClasses] = useState([]);
     const [electiveCompleted, setElectiveCompleted] = useState([]);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const data = await getClassData();
-    //             setClassData(data);
-    //             setCompleted(data.map(item => item.completed)); // Initialize completed state
-
-    //             // filtering each array for class type categorization
-    //             setLowerDivClasses(data.filter(item => item.classType === 'LowerDiv')); // array of lower div classes
-    //             setUpperDivClasses(data.filter(item => item.classType === 'UpperDiv')); // array of upper div classes
-    //             setTechBreadthClasses(data.filter(item => item.classType === 'TechBreadth'));   // array of techbreadth classes
-    //             setSciTechClasses(data.filter(item => item.classType === 'SciTech'));   // array scitech classes
-    //             setElectiveClasses(data.filter(item => item.classType === 'Elective')); // array of electives
-                
-    //             console.log(lowerDivClasses);
-    //             console.log(lowerDivCompleted);
-    //         } catch (error) {
-    //             console.error('Error fetching classes data:', error);
-    //         }
-    //     };
-        
-    //     setLowerDivCompleted(lowerDivClasses.map(item => item.completed));
-    //     setUpperDivCompleted(upperDivClasses.map(item => item.completed));
-    //     setTechBreadthCompleted(techBreadthClasses.map(item => item.completed));
-    //     setSciTechCompleted(sciTechClasses.map(item => item.completed));
-    //     setElectiveCompleted(electiveClasses.map(item => item.completed));
-        
-    //     fetchData(); // Call fetchData when the component mounts
-    // }, []);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -61,12 +31,23 @@ const Selectionfield = () => {
                 setCompleted(data.map(item => item.completed)); // Initialize completed state
 
                 // filtering each array for class type categorization
-                setLowerDivClasses(data.filter(item => item.classType === 'LowerDiv')); // array of lower div classes
-                setUpperDivClasses(data.filter(item => item.classType === 'UpperDiv')); // array of upper div classes
-                setTechBreadthClasses(data.filter(item => item.classType === 'TechBreadth'));   // array of techbreadth classes
-                setSciTechClasses(data.filter(item => item.classType === 'SciTech'));   // array scitech classes
-                setElectiveClasses(data.filter(item => item.classType === 'Elective')); // array of electives
+                const lowerDivData = (data.filter(item => item.classType === 'LowerDiv')); // array of lower div classes
+                const upperDivData = (data.filter(item => item.classType === 'UpperDiv')); // array of upper div classes
+                const techBreadthData = (data.filter(item => item.classType === 'TechBreadth'));   // array of techbreadth classes
+                const sciTechData = (data.filter(item => item.classType === 'SciTech'));   // array scitech classes
+                const electiveData = (data.filter(item => item.classType === 'Elective')); // array of electives
 
+                setLowerDivClasses(lowerDivData);
+                setUpperDivClasses(upperDivData);
+                setTechBreadthClasses(techBreadthData);
+                setSciTechClasses(sciTechData);
+                setElectiveClasses(electiveData);
+
+                setLowerDivCompleted(lowerDivData.map(item => item.completed));
+                setUpperDivCompleted(upperDivData.map(item => item.completed));
+                setTechBreadthCompleted(techBreadthData.map(item => item.completed));
+                setSciTechCompleted(sciTechData.map(item => item.completed));
+                setElectiveCompleted(electiveData.map(item => item.completed));
                 // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
                 // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
                 // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
@@ -78,13 +59,6 @@ const Selectionfield = () => {
                 console.error('Error fetching classes data:', error);
             }
         };
-        
-        console.log(lowerDivClasses);
-        // setLowerDivCompleted(lowerDivClasses.map(item => item.completed));
-        // setUpperDivCompleted(upperDivClasses.map(item => item.completed));
-        // setTechBreadthCompleted(techBreadthClasses.map(item => item.completed));
-        // setSciTechCompleted(sciTechClasses.map(item => item.completed));
-        // setElectiveCompleted(electiveClasses.map(item => item.completed));
         
         fetchData(); // Call fetchData when the component mounts
     }, []);
@@ -123,7 +97,7 @@ const Selectionfield = () => {
             <p className="f2 b mt3">
                 Lower Division Courses
             </p>
-            <SelectionCardList classes={lowerDivClasses} completed={lowerDivClasses.map(item => item.completed)} handleCheckboxChange={handleCheckboxChange}/>
+            <SelectionCardList classes={lowerDivClasses} completed={lowerDivCompleted} handleCheckboxChange={handleCheckboxChange}/>
 
             <p className="f2 b mt3">
                 Upper Division CS Courses
