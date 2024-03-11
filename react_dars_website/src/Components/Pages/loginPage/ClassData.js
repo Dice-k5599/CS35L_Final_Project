@@ -6,7 +6,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, four hours; discussion, two hours; outside study, six hours. Introduction to computer science via theory, applications, and programming. Basic data types, operators and control structures. Input/output. Procedural and data abstraction. Introduction to object-oriented software development. Functions, recursion. Arrays, strings, pointers. Abstract data types, object-oriented programming. Examples and exercises from computer science theory and applications. Letter grading.'
     },
     {
         className: 'Intro to Comp Sci II',
@@ -15,7 +16,8 @@ export const ClassData = [
         prereq: ['CS 31'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, four hours; discussion, two hours; outside study, six hours. Enforced requisite: course 31. Object-oriented software development. Abstract data type definition and use. Overloading, inheritance, polymorphism. Object-oriented view of data structures: stacks, queues, lists. Algorithm analysis. Trees, graphs, and associated algorithms. Searching and sorting. Case studies and exercises from computer science applications. Letter grading.' 
     },
     {
         className: 'Intro to Comp Organization',
@@ -24,7 +26,8 @@ export const ClassData = [
         prereq: ['CS 32'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 5,
+        description: 'Lecture, four hours; discussion, two hours; outside study, nine hours. Enforced requisite: course 32. Introductory course on computer architecture, assembly language, and operating systems fundamentals. Number systems, machine language, and assembly language. Procedure calls, stacks, interrupts, and traps. Assemblers, linkers, and loaders. Operating systems concepts: processes and process management, input/output (I/O) programming, memory management, file systems. Letter grading.'
     },
     {
         className: 'Software Construction',
@@ -33,7 +36,8 @@ export const ClassData = [
         prereq: ['CS 31'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, four hours; discussion, two hours; outside study, six hours. Requisite: course 31. Fundamentals of tools and environments for software construction projects, particularly open-source platforms used in upper-division computer science courses. Software practice through collaborative student project. Letter grading.'
     },
     {
         className: 'Logic Design of Digital Systems',
@@ -42,7 +46,8 @@ export const ClassData = [
         prereq: [],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, four hours; discussion, two hours; outside study, six hours. Introduction to digital systems. Specification and implementation of combinational and sequential systems. Standard logic modules and programmable logic arrays. Specification and implementation of algorithmic systems: data and control sections. Number systems and arithmetic algorithms. Error control codes for digital information. Letter grading.'
     },
     {
         className: 'Differential and Inegral Calculus',
@@ -51,7 +56,8 @@ export const ClassData = [
         prereq: ['CS 31'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, three hours; discussion, one hour. Preparation: at least three and one half years of high school mathematics (including some coordinate geometry and trigonometry). Requisite: successful completion of Mathematics Diagnostic Test or course 1 with grade of C- or better. Differential calculus and applications; introduction to integration. P/NP or letter grading.'
     },
     {
         className: 'Integration and Infinite Series',
@@ -60,16 +66,8 @@ export const ClassData = [
         prereq: ['Math 31A'],
         completed: false,
         grade: 0,
-        units: 3,
-    },
-    {
-        className: 'Integration and Infinite Series',
-        classCode: 'Math 31B',
-        availability: true,
-        prereq: ['Math 31A'],
-        completed: false,
-        grade: 0,
-        units: 3,
+        units: 4,
+        description:'Lecture, three hours; discussion, one hour. Requisite: course 31A with grade of C- or better. Not open for credit to students with credit for course 3B. Transcendental functions; methods and applications of integration; sequences and series. P/NP or letter grading.' 
     },
     {
         className: 'Calculus of Several Variables',
@@ -79,6 +77,7 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 3,
+        description: 'Lecture, three hours; discussion, one hour. Enforced requisite: course 31A with grade of C- or better. Introduction to differential calculus of several variables, vector field theory. P/NP or letter grading.'
     },
     {
         className: 'Calculus of Several Variables',
@@ -87,7 +86,8 @@ export const ClassData = [
         prereq: ['Math 31B', 'Math 32A'],
         completed: false,
         grade: 0,
-        units: 3,
+        units: 4,
+        description: 'Lecture, three hours; discussion, one hour. Enforced requisites: courses 31B and 32A, with grades of C- or better. Introduction to integral calculus of several variables, line and surface integrals. P/NP or letter grading.'
     },
     {
         className: 'Integration and Infinite Series',
@@ -97,6 +97,7 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 3,
+        description: 
     },
     {
         className: 'Differential Equations',

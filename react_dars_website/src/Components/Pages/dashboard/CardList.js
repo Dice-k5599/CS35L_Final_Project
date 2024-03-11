@@ -12,6 +12,8 @@ const CardList = ({ classes }) => {
                     <div key={i}>
                         <Card
                             label={classItem.classCode}
+                            title={classItem.className}
+                            description={classItem.description}
                         />
                     </div>
                 ))

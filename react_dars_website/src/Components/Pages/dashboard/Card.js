@@ -6,7 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 
-function Card({ label }){
+function Card({ label, title, description }){
 
     let [isOpen, setIsOpen] = useState(false);
 
@@ -59,17 +59,11 @@ function Card({ label }){
                             as="h3"
                             className="text-lg font-medium leading-6 text-gray-900"
                         >
-                            Intro to Comp Sci I 
+                            {title}
                         </Dialog.Title>
                         <div className="mt-2">
                             <p className="text-sm text-gray-500">
-                            Lecture, four hours; discussion, two hours; outside study, six hours. 
-                            Introduction to computer science via theory, applications, and programming. 
-                            Basic data types, operators and control structures. Input/output. 
-                            Procedural and data abstraction. Introduction to object-oriented software development. 
-                            Functions, recursion. Arrays, strings, pointers. Abstract data types, object-oriented 
-                            programming. Examples and exercises from computer science theory and applications. 
-                            Letter grading.
+                            {description}
                             </p>
                         </div>
 
