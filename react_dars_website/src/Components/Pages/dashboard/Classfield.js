@@ -24,10 +24,12 @@ const Classfield = () => {
         const fetchData = async () => {
             try {
                 const data = await getClassData();
+                data.sort((a,b)=> a.index - b.index);
                 setClassData(data);
                 setCompleted(data.map(item => item.completed)); // Initialize completed state
                 
                 const recommendedData = await NextClass();
+                recommendedData.sort((a,b)=>a.index - b.index);
                 setRecommendedClasses(recommendedData);
 
                 // these two functions will filter out the data array so that
@@ -35,10 +37,10 @@ const Classfield = () => {
                 // and unCompletedCourses will hold all courses user haven't completed
                 setCompletedClasses(data.filter((item) => {
                     return item.completed === true;
-                }))
+                }).sort((a,b)=> a.index - b.index))
                 setUnCompletedClasses(data.filter((item) => {
                     return item.completed === false;
-                }))
+                }).sort((a,b)=> a.index - b.index))
 
                 // get completed course for pie chart
                 const completed = data.filter(c => c.completed).length;
@@ -140,6 +142,8 @@ const Classfield = () => {
                             Check out courses available specifically for you next quarter, all required courses in the future, and courses you have taken in the past.  
                         </p> 
                     </div>
+                    {/* Pie Chart */}
+                    {/* width -> parent container, height */} 
                     <ResponsiveContainer width="40%" height={300}>
                         <PieChart>
                         <Pie
@@ -166,8 +170,6 @@ const Classfield = () => {
                         </Pie>
                         </PieChart>
                     </ResponsiveContainer>  
-                    {/* Pie Chart */}
-                    {/* width -> parent container, height */} 
                 </div>
 
             </div>  
