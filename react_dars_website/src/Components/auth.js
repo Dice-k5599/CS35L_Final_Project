@@ -1,4 +1,5 @@
-import { auth, googleAuth } from "../../../config/firebase";
+import { useState } from "react";
+import { auth, googleAuth } from "../config/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,11 +8,10 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-
-import { setDoc, doc, updateDoc, getDoc } from "firebase/firestore";
-import { db } from "../../../config/firebase";
+import { ResetPassword } from "./ResetPassword";
+import { setDoc, doc, updateDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
-import { addDefaultClass } from "./AddDefaultClass";
 
 export const Auth = ({ loginType, email, password, onGetClassList }) => {
   console.log("Auth is running");
@@ -32,29 +32,27 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
 
       //sign the user out so they can't login yet.
       await signOut(auth);
+      alert("You are signed out");
 
       //Send the verification email right after signing up
       const user = studentCred.user;
-       try {
-       await sendEmailVerification(user);
-       alert("email verification sent. Please confirm the email before signing in!");
+      try {
+      await sendEmailVerification(user);
+      alert("email verification sent. Please confirm the email before signing in!");
+    } catch (err) {
+      alert("Something went wrong while sending the email verification link, please refresh the page and try again");
+    };
 
-       await setDoc(doc(db, "students", user.uid), {
+      await setDoc(doc(db, "students", user.uid), {
         email: user.email,
-        verified: false,
-        defaultClassMade: false
+        verified: false
+        //fullName: fullName,
       });
-     } catch (err) {
-       alert("Something went wrong while sending the email verification link, please refresh the page and try again");
-     };
-
-     /*
       handleSetClassList();
       console.log("User created and document added to Firestore");
-      */
     } catch (err) {
       console.log(err);
-      alert("Invalid email and/or password, please try again!");
+      alert("Sign-up error: " + err);
     }
   };
 
@@ -64,27 +62,18 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       const user = studentCred.user;
       if (user && !user.emailVerified) {
         await signOut(auth);
-        alert("Please verify your email before signing in!");
-        //await sendEmailVerification(user); Two awaits close to each other seems to cause issues
+        alert("Please verify your email before signing in! We have sent a new email verification link.");
+        await sendEmailVerification(user);
       }
-      else if(user && user.emailVerified){
-        const userDocRef = doc(db, "students", user.uid); 
+      else { 
+        const userDocRef = doc(db, "students", user.uid);
         console.log("updating user verified flag");
         await updateDoc(userDocRef, {
           verified: true
         })
-
-        const studentDoc = await getDoc(userDocRef);
-        if (studentDoc.data().defaultClassMade === false) {
-          await addDefaultClass(`students/${user.uid}/classes`);
-          await updateDoc(userDocRef, {
-            defaultClassMade: true
-          })
-        }
-
-        handleSetClassList();
-        console.log("You are logged in");
-        navigate("/dashboard");
+      handleSetClassList();
+      console.log("You are logged in");
+      navigate("/temp");
       }
     } catch (err) {
       console.log(err);
@@ -94,7 +83,6 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
 
   const resetPassword = async () => {
     console.log("Block reset is running");
-    //alert("Password is successfully reset");
     try {
       await sendPasswordResetEmail(auth, email);
     } catch (err) {
@@ -108,42 +96,24 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     try {
       const studentCred = await signInWithPopup(auth, googleAuth);
       const user = studentCred.user;
-      const userDocRef = doc(db, "students", user.uid); 
-      const studentDoc = await getDoc(userDocRef);
-
-      if (studentDoc.exists() == false){
-        console.log("sign up code is running");
-        await setDoc(doc(db, "students", user.uid), {
-        email: user.email,
-        verified: true,
-        defaultClassMade: false
-      })
-        alert("You are successfully signed up with Google. Please click on 'Continue with Google' to sign in");
+      if (user && !user.emailVerified) {
+        await signOut(auth);
+        alert("Please verify your email before signing in! We have sent a new email verification link.");
+        await sendEmailVerification(user);
       }
-
-      else {
-      console.log("Block 2 is running");
-      //const userDocRef = doc(db, "students", user.uid); 
-      console.log("updating user verified flag");
-      await updateDoc(userDocRef, {
-        verified: true
-      })
-
-      //const studentDoc = await getDoc(userDocRef);
-      if (studentDoc.data().defaultClassMade === false) {
-        await addDefaultClass(`students/${user.uid}/classes`);
+      else { 
+        const userDocRef = doc(db, "students", user.uid);
+        console.log("updating user verified flag");
         await updateDoc(userDocRef, {
-          defaultClassMade: true
+          verified: true
         })
-      }
       handleSetClassList();
       console.log("You are logged in");
-      navigate("/dashboard");
-      } 
-      
+      navigate("/temp");
+      }
     } catch (err) {
       console.log(err);
-      alert("Google sign-in error: " + err);
+      alert("Something went wrong with Google sign-in, consider the other sign-in method or try again");
     }
   };
 
@@ -154,7 +124,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       handleSetClassList();
     } catch (err) {
       console.log(err);
-      alert("Sign-out error: " + err);
+      alert("Something went wrong and you are still signed in, try again or close the tab to log out");
     }
   };
   if (loginType === "emailSignIn") {

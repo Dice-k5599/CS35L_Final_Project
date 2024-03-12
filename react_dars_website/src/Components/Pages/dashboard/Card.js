@@ -6,7 +6,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 
-function Card({ label, description, className }){
+function Card({ label, title, description }){
 
     let [isOpen, setIsOpen] = useState(false);
 
@@ -59,11 +59,11 @@ function Card({ label, description, className }){
                             as="h3"
                             className="text-lg font-medium leading-6 text-gray-900"
                         >
-                            {className}
+                            {title}
                         </Dialog.Title>
                         <div className="mt-2">
                             <p className="text-sm text-gray-500">
-                                {description}
+                            {description}
                             </p>
                         </div>
 
@@ -92,8 +92,9 @@ function Card({ label, description, className }){
                         <span className="checkbox-label">CS3</span>
                     </span>
                 </label>
-            </div> */}
+                </div> */}
         </>
+
     );
 }
 
