@@ -23,20 +23,23 @@ const Selectionfield = () => {
     const [electiveClasses, setElectiveClasses] = useState([]);
     const [electiveCompleted, setElectiveCompleted] = useState([]);
 
+
     useEffect(() => {
         const fetchData = async () => {
             console.log('useeffect entered');
             try {
                 const data = await getClassData();
+                data.sort((a,b)=> a.index - b.index);
                 setClassData(data);
                 setCompleted(data.map(item => item.completed)); // Initialize completed state
 
                 // filtering each array for class type categorization
-                const lowerDivData = (data.filter(item => item.classType === 'LowerDiv')); // array of lower div classes
-                const upperDivData = (data.filter(item => item.classType === 'UpperDiv')); // array of upper div classes
-                const techBreadthData = (data.filter(item => item.classType === 'TechBreadth'));   // array of techbreadth classes
-                const sciTechData = (data.filter(item => item.classType === 'SciTech'));   // array scitech classes
-                const electiveData = (data.filter(item => item.classType === 'Elective')); // array of electives
+                const lowerDivData = (data.filter(item => item.classType === 'LowerDiv').sort((a,b)=> a.index - b.index)); // array of lower div classes
+                const upperDivData = (data.filter(item => item.classType === 'UpperDiv').sort((a,b)=> a.index - b.index)); // array of upper div classes
+                const techBreadthData = (data.filter(item => item.classType === 'TechBreadth').sort((a,b)=> a.index - b.index));   // array of techbreadth classes
+                const sciTechData = (data.filter(item => item.classType === 'SciTech').sort((a,b)=> a.index - b.index));   // array scitech classes
+                const electiveData = (data.filter(item => item.classType === 'Elective').sort((a,b)=> a.index - b.index)); // array of electives
+
 
                 setLowerDivClasses(lowerDivData);
                 setUpperDivClasses(upperDivData);
