@@ -66,3 +66,4 @@ export const UpdateDoc = ({ classId, updateType, onGetClassList }) => {
     </div>
   );
 };
+

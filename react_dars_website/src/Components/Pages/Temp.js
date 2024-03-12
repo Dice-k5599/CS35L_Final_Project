@@ -11,7 +11,13 @@ function Temp(){
                 onClick={() => {
                     navigate("/about");
                 }}> 
-                Go to the About page, here you go. 
+                About page
+            </button>
+            <button 
+                onClick={() => {
+                    navigate("/selectionPage");
+                }}> 
+                Selection page
             </button>
         </div>
     );

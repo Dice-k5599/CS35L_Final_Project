@@ -125,3 +125,4 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     resetPassword();
   }
 };
+

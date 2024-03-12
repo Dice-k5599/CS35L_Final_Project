@@ -41,3 +41,4 @@ export const DisplayClasses = ({ classList, onGetClassList }) => {
 };
 
 export default DisplayClasses;
+

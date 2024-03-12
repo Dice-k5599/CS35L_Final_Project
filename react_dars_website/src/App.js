@@ -1,19 +1,9 @@
 import React, { Component, useEffect, useState } from "react";
-//import CardList from "./CardList";
-//import SearchBox from "./SearchBox";
-//import { robots } from "./robots";
 import "./App.css";
 
 // Path
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import About from "./components/Pages/About.js";
-import LoginForm from "./components/Pages/login.js";
-import Temp from "./components/Pages/Temp.js";
-import Chart from "./components/Pages/chartTesting.js"
-
-//import { Auth } from "./Components/auth.js";
-//import { ClassReg } from "./Components/ClassReg.js";
-//import { DisplayClasses } from "./Components/DisplayClasses.js";
+// firebase related imports
 import { db, auth } from "./config/firebase";
 import {
   getDocs,
@@ -22,6 +12,16 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+
+// Components import
+import LoginForm from "./components/Pages/loginPage/login.js";
+import DashBoard from "./components/Pages/dashboard/DashBoard.js";
+import SelectionPage from "./components/Pages/selectionPage/SelectionPage.js";
+
+// import { Auth } from "./Components/Pages/loginPage/auth.js";
+// import { ClassReg } from "./Components/ClassReg.js";
+// import { DisplayClasses } from "./Components/DisplayClasses.js";
+
 
 function App() {
   const [classList, setClassList] = useState([]);
@@ -58,19 +58,18 @@ function App() {
 
       <DisplayClasses classList={classList} onGetClassList={getCLassList} />*/}
 
-      <Router>
+<Router>
         <Routes>
           <Route
             path="/"
             element={<LoginForm onGetClassList={getCLassList} />}
           />
-          <Route path="/about" element={<About />} />
-          <Route path="/temp" element={<Temp />} />
-          <Route path="/chart" element={<Chart />} />
+
+          <Route path="/selectionPage" element={<SelectionPage />}/>
+          <Route path="/dashboard" element={<DashBoard />}/>
         </Routes>
       </Router>
     </div>
   );
 }
-
 export default App;
