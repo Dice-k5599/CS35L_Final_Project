@@ -64,6 +64,7 @@ function Card({ label, title, description }){
                         <div className="mt-2">
                             <p className="text-sm text-gray-500">
                             {description}
+                            </p>
                         </div>
 
                         <div className="mt-4">
@@ -91,8 +92,9 @@ function Card({ label, title, description }){
                         <span className="checkbox-label">CS3</span>
                     </span>
                 </label>
-            </div> */}
+                </div> */}
         </>
+
     );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getClassData from "../selectionPage/getClassData";
 import "./Classfield.css";
+import NextClass from ":../selectionPage/NextClass";
 
 // component import
 import CardList from "./CardList";
@@ -18,6 +19,9 @@ const Classfield = () => {
                 setClassData(data);
                 setCompleted(data.map(item => item.completed)); // Initialize completed state
                 
+                const recommendedData = await NextClass();
+                setRecommendedClasses(recommendedData);
+
                 // these two functions will filter out the data array so that
                 // completedCourses will hold all courses user have completed
                 // and unCompletedCourses will hold all courses user haven't completed
