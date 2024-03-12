@@ -8,8 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-// import { ResetPassword } from "../../ResetPassword";
-import { setDoc, doc, updateDoc } from "firebase/firestore";
+import { setDoc, doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { addDefaultClass } from "./AddDefaultClass";
@@ -32,30 +31,30 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       );
 
       //sign the user out so they can't login yet.
-      //await signOut(auth);
-      alert("You are signed out");
+      await signOut(auth);
 
       //Send the verification email right after signing up
       const user = studentCred.user;
-    //   try {
-    //   await sendEmailVerification(user);
-    //   alert("email verification sent. Please confirm the email before signing in!");
-    // } catch (err) {
-    //   alert("Something went wrong while sending the email verification link, please refresh the page and try again");
-    // };
+       try {
+       await sendEmailVerification(user);
+       alert("email verification sent. Please confirm the email before signing in!");
 
-      await setDoc(doc(db, "students", user.uid), {
+       await setDoc(doc(db, "students", user.uid), {
         email: user.email,
-        verified: false
-        //fullName: fullName,
+        verified: false,
+        defaultClassMade: false
       });
-      await addDefaultClass(`students/${user.uid}/classes`);
+     } catch (err) {
+       alert("Something went wrong while sending the email verification link, please refresh the page and try again");
+     };
 
+     /*
       handleSetClassList();
       console.log("User created and document added to Firestore");
+      */
     } catch (err) {
       console.log(err);
-      alert("Sign-up error: " + err);
+      alert("Invalid email and/or password, please try again!");
     }
   };
 
@@ -63,20 +62,29 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     try {
       const studentCred = await signInWithEmailAndPassword(auth, email, password);
       const user = studentCred.user;
-      /*if (user && !user.emailVerified) {
+      if (user && !user.emailVerified) {
         await signOut(auth);
-        alert("Please verify your email before signing in! We have sent a new email verification link.");
-        await sendEmailVerification(user);
+        alert("Please verify your email before signing in!");
+        //await sendEmailVerification(user); Two awaits close to each other seems to cause issues
       }
-      else */if(user){
-        const userDocRef = doc(db, "students", user.uid);
+      else if(user && user.emailVerified){
+        const userDocRef = doc(db, "students", user.uid); 
         console.log("updating user verified flag");
         await updateDoc(userDocRef, {
           verified: true
         })
-      handleSetClassList();
-      console.log("You are logged in");
-      navigate("/dashboard");
+
+        const studentDoc = await getDoc(userDocRef);
+        if (studentDoc.data().defaultClassMade === false) {
+          await addDefaultClass(`students/${user.uid}/classes`);
+          await updateDoc(userDocRef, {
+            defaultClassMade: true
+          })
+        }
+
+        handleSetClassList();
+        console.log("You are logged in");
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log(err);
@@ -98,10 +106,41 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   const signInWithGoogle = async () => {
     console.log("Google sign in is running");
     try {
-      await signInWithPopup(auth, googleAuth);
-      console.log(email, password);
+      const studentCred = await signInWithPopup(auth, googleAuth);
+      const user = studentCred.user;
+      const userDocRef = doc(db, "students", user.uid); 
+      const studentDoc = await getDoc(userDocRef);
+
+      if (studentDoc.exists() == false){
+        console.log("sign up code is running");
+        await setDoc(doc(db, "students", user.uid), {
+        email: user.email,
+        verified: true,
+        defaultClassMade: false
+      })
+        alert("You are successfully signed up with Google. Please click on 'Continue with Google' to sign in");
+      }
+
+      else {
+      console.log("Block 2 is running");
+      //const userDocRef = doc(db, "students", user.uid); 
+      console.log("updating user verified flag");
+      await updateDoc(userDocRef, {
+        verified: true
+      })
+
+      //const studentDoc = await getDoc(userDocRef);
+      if (studentDoc.data().defaultClassMade === false) {
+        await addDefaultClass(`students/${user.uid}/classes`);
+        await updateDoc(userDocRef, {
+          defaultClassMade: true
+        })
+      }
+      handleSetClassList();
+      console.log("You are logged in");
       navigate("/dashboard");
-      //alert("You are logged in");
+      } 
+      
     } catch (err) {
       console.log(err);
       alert("Google sign-in error: " + err);
