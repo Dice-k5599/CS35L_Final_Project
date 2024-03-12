@@ -4,7 +4,6 @@ import React from "react";
 import Card from "./Card";
 
 const CardList = ({ classes }) => {
-    console.log(classes);
     return (
         <div className="flex flex-row flex-wrap">   
             {

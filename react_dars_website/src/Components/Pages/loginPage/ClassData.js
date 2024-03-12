@@ -1,3 +1,14 @@
+/*
+    ClassType field specifies the type of class
+        - Used to categorize classes so that we could display classes in divided sections
+    
+    LowerDiv: Lower division Class (listed as preparation for Major courses)
+    UpperDiv: Upper division CS class (Major courses)
+    SciTech: Science and Technology Class
+    TechBreadth: Technical Breadth area class
+    Elective: CS Upper Div elective class ( CS 100 - 187)
+*/
+
 export const ClassData = [
     {
         className: 'Intro to Comp Sci I',
@@ -64,6 +75,17 @@ export const ClassData = [
         grade: 0,
         units: 4,
         description:'Lecture, three hours; discussion, one hour. Preparation: at least three and one half years of high school mathematics (including some coordinate geometry and trigonometry). Requisite: successful completion of Mathematics Diagnostic Test or course 1 with grade of C- or better. Differential calculus and applications; introduction to integration. P/NP or letter grading.'
+    },
+    {
+        className: 'Integration and Infinite Series',
+        classCode: 'Math 31B',
+        classType: 'LowerDiv',
+        availability: true,
+        prereq: ['Math 31A'],
+        completed: false,
+        grade: 0,
+        units: 3,
+        description: '',
     },
     {
         className: 'Integration and Infinite Series',

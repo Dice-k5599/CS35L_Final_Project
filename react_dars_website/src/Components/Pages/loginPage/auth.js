@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+
 // import { ResetPassword } from "../../ResetPassword";
 import { setDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
@@ -36,12 +37,12 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
 
       //Send the verification email right after signing up
       const user = studentCred.user;
-      try {
-      await sendEmailVerification(user);
-      alert("email verification sent. Please confirm the email before signing in!");
-    } catch (err) {
-      alert("Something went wrong while sending the email verification link, please refresh the page and try again");
-    };
+    //   try {
+    //   await sendEmailVerification(user);
+    //   alert("email verification sent. Please confirm the email before signing in!");
+    // } catch (err) {
+    //   alert("Something went wrong while sending the email verification link, please refresh the page and try again");
+    // };
 
       await setDoc(doc(db, "students", user.uid), {
         email: user.email,
