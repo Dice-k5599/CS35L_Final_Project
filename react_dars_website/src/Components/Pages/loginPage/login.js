@@ -81,7 +81,7 @@ const LoginForm = ({ onGetClassList }) => {
               {/*<label><input type = "checkbox" /> Remember me</label>*/}
               {/* link to forgot pw page */}
               {/* NEED CHANGE, so far the forgot link take to google homepage */}
-              <button
+              <button className="pulsing-button" 
                 onClick={() => {
                   setLoginType("reset");
                   setShowAuth(true);
@@ -93,7 +93,7 @@ const LoginForm = ({ onGetClassList }) => {
 
             {/* Login button takes to next page (Temp) */}
             <div className="allButton">
-              <button
+              <button className="pulsing-button"
                 onClick={() => {
                   setLoginType("emailSignIn");
                   setShowAuth(true);
@@ -104,7 +104,7 @@ const LoginForm = ({ onGetClassList }) => {
               </button>
 
               {/* Google Login button takes to next page (Temp) */}
-              <button
+              <button className="pulsing-button"
                 onClick={() => {
                   setLoginType("googleSignIn");
                   setShowAuth(true);
@@ -142,7 +142,7 @@ const LoginForm = ({ onGetClassList }) => {
             </div>
             {/* password box */}
             <div className="input-box">
-              <input
+              <input 
                 type="password"
                 placeholder="Password"
                 required
@@ -153,9 +153,9 @@ const LoginForm = ({ onGetClassList }) => {
             </div>
 
             {/* Login button takes to next page (Temp) */}
-            <div className="allButton">
+            <div style={{marginTop: '75px'}} className="allButton">
               {/* Google Login button takes to next page (Temp) */}
-              <button
+              <button className="pulsing-button"
                   onClick={() => {
                     setLoginType("signUp");
                     setShowRegAuth(true);
@@ -163,7 +163,7 @@ const LoginForm = ({ onGetClassList }) => {
                 >
                   Register
                 </button>
-              <button
+              <button className="pulsing-button"
                 onClick={() => {
                   setLoginType("googleSignIn");
                   setShowRegAuth(true);
