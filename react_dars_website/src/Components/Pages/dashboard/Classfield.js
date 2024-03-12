@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getClassData from "../selectionPage/getClassData";
 import "./Classfield.css";
-import NextClass from ":../selectionPage/NextClass";
+import NextClass from "../selectionPage/NextClass";
 
 // component import
 import CardList from "./CardList";
@@ -9,6 +9,7 @@ import CardList from "./CardList";
 const Classfield = () => {
     const [classData, setClassData] = useState([]);
     const [completed, setCompleted] = useState([]);
+    const [recommendedClasses, setRecommendedClasses] = useState([]);
     const [completedClasses, setCompletedClasses] = useState([]);
     const [unCompletedClasses, setUnCompletedClasses] = useState([]);
 
@@ -52,7 +53,7 @@ const Classfield = () => {
             <p className="f2 b mt3">
                 Available Courses
             </p>
-            <CardList classes={[]}/>
+            <CardList classes={recommendedClasses}/>
             <p className="f2 b mt3">
                 Future Courses
             </p>
