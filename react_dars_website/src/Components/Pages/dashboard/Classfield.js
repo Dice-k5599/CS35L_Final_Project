@@ -140,6 +140,8 @@ const Classfield = () => {
                             Check out courses available specifically for you next quarter, all required courses in the future, and courses you have taken in the past.  
                         </p> 
                     </div>
+                    {/* Pie Chart */}
+                    {/* width -> parent container, height */} 
                     <ResponsiveContainer width="40%" height={300}>
                         <PieChart>
                         <Pie
@@ -166,8 +168,6 @@ const Classfield = () => {
                         </Pie>
                         </PieChart>
                     </ResponsiveContainer>  
-                    {/* Pie Chart */}
-                    {/* width -> parent container, height */} 
                 </div>
 
             </div>  
