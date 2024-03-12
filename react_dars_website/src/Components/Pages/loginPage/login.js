@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { Auth } from "./auth";
 
 const LoginForm = ({ onGetClassList }) => {
+  // Hook to utilize nevigation capability within React components
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

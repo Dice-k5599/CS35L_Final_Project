@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./DashBoard.css"
 import { useNavigate } from "react-router-dom";
 
@@ -10,12 +10,15 @@ import FooterPart from "./FooterPart";
 function DashBoard(){
     const navigate = useNavigate();
 
+    
     return (
         <div className="">        
             <Navigationbar />
             <Classfield />
             <FooterPart />
+
         </div>
+        
     );
 }
 

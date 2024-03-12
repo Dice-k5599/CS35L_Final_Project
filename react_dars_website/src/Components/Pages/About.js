@@ -5,13 +5,13 @@ function About(){
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div className="visualBG">
             <h1>About.....OUT AND ABOUT</h1>
             <button 
                 onClick={() => {
-                    navigate("/");
+                    navigate("/Chart");
                 }}> 
-                Go to the Login page 
+                Go to the Chart page 
             </button>
         </div>
     );
