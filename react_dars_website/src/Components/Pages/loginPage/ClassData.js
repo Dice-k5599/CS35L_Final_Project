@@ -85,7 +85,7 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 3,
-        description: '',
+        description: 'Lecture, three hours; discussion, one hour. Requisite: course 31A with grade of C– or better. Not open for credit to students with credit for course 3B. Transcendental functions; methods and applications of integration; sequences and series. P/NP or letter grading.',
     },
     {
         className: 'Integration and Infinite Series',
@@ -298,17 +298,17 @@ export const ClassData = [
     },
     {
         className: 'Statisitics',
-        classCode: 'Stats 100A or Math 170A or Math 170E or ECE 131A or CEE 110)',
+        classCode: 'Stats 100A or Math 170A or Math 170E or ECE 131A or CEE 110',
         classType: 'UpperDiv',
         availability: true,
         prereq: ['Math 32B', 'Math 33A'],
         completed: false,
         grade: 0,
         units: 4,
-        description: 'One of following required statistics classes'
+        description: 'Choose one of following required statistics classes: Stats 100A or Math 170A or Math 170E or ECE 131A or CEE 110.'
     },
     {
-        className: '',
+        className: 'CS Upper Div Elective #1',
         classCode: 'CS Upper Div Elective #1 (CS 100-188)',
         classType: 'Elective',
         availability: true,
@@ -316,10 +316,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'One of the following electives'
+        description: 'Computer Science Upper Division Elective class. Choose from (CS 100-187). Students must take elective classes other than the major required courses that are already specified.'
     },
     {
-        className: '',
+        className: 'CS Upper Div Elective #2',
         classCode: 'CS Upper Div Elective #2 (CS 100-188)',
         classType: 'Elective',
         availability: true,
@@ -327,10 +327,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'One of the following electives'
+        description: 'Computer Science Upper Division Elective class. Choose from (CS 100-187). Students must take elective classes other than the major required courses that are already specified.'
     },
     {
-        className: '',
+        className: 'CS Upper Div Elective #3',
         classCode: 'CS Upper Div Elective #3 (CS 100-187)',
         classType: 'Elective',
         availability: true,
@@ -338,10 +338,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'One of the following electives'
+        description: 'Computer Science Upper Division Elective class. Choose from (CS 100-187). Students must take elective classes other than the major required courses that are already specified.'
     },
     {
-        className: '',
+        className: 'CS Upper Div Elective #4',
         classCode: 'CS Upper Div Elective #4 (CS 100-187)',
         classType: 'Elective',
         availability: true,
@@ -349,10 +349,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'One of the following electives'
+        description: 'Computer Science Upper Division Elective class. Choose from (CS 100-187). Students must take elective classes other than the major required courses that are already specified.'
     },
     {
-        className: '',
+        className: 'CS Upper Div Elective #5',
         classCode: 'CS Upper Div Elective #5 (CS 100-187)',
         classType: 'Elective',
         availability: true,
@@ -360,10 +360,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'One of the following electives'
+        description: 'Computer Science Upper Division Elective class. Choose from (CS 100-187). Students must take elective classes other than the major required courses that are already specified.'
     },
     {
-        className: '',
+        className: 'Technical Breadth #1',
         classCode: 'TBR #1',
         classType: 'TechBreadth',
         availability: true,
@@ -371,10 +371,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'Choose 3 Tech Breadth Classes'
+        description: 'Students must satisfy a single Technical Breadth Area (minimum 12.0 units and three courses) outside their major’s department. Please login to MyEngineering to declare your area (left hand side, select About Me). '
     },
     {
-        className: '',
+        className: 'Technical Breadth #2',
         classCode: 'TBR #2',
         classType: 'TechBreadth',
         availability: true,
@@ -382,10 +382,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'Choose 3 Tech Breadth Classes'
+        description: 'Students must satisfy a single Technical Breadth Area (minimum 12.0 units and three courses) outside their major’s department. Please login to MyEngineering to declare your area (left hand side, select About Me). '
     },
     {
-        className: '',
+        className: 'Technical Breadth #3',
         classCode: 'TBR #3',
         classType: 'TechBreadth',
         availability: true,
@@ -393,10 +393,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'Choose 3 Tech Breadth Classes'
+        description: 'Students must satisfy a single Technical Breadth Area (minimum 12.0 units and three courses) outside their major’s department. Please login to MyEngineering to declare your area (left hand side, select About Me). '
     },
     {
-        className: '',
+        className: 'Science and Technology #1',
         classCode: 'Sci-Tech #1',
         classType: 'SciTech',
         availability: true,
@@ -404,10 +404,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'Need to choose 3 Sci-Tech Classes'
+        description: 'Required: 12 units (at least 3 courses) of Science and Techonology. These courses may not be used to satisfy other requirements in the major (no double counting in CS)'
     },
     {
-        className: '',
+        className: 'Science and Technology #2',
         classCode: 'Sci-Tech #2',
         classType: 'SciTech',
         availability: true,
@@ -415,10 +415,10 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'Need to choose 3 Sci-Tech Classes'
+        description: 'Required: 12 units (at least 3 courses) of Science and Techonology. These courses may not be used to satisfy other requirements in the major (no double counting in CS)'
     },
     {
-        className: '',
+        className: 'Science and Technology #3',
         classCode: 'Sci-Tech #3',
         classType: 'SciTech',
         availability: true,
@@ -426,6 +426,6 @@ export const ClassData = [
         completed: false,
         grade: 0,
         units: 4,
-        description: 'Need to choose 3 Sci-Tech Classes'
+        description: 'Required: 12 units (at least 3 courses) of Science and Techonology. These courses may not be used to satisfy other requirements in the major (no double counting in CS)'
     },
     ];
