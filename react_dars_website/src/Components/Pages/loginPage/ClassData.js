@@ -2,6 +2,7 @@ export const ClassData = [
     {
         className: 'Intro to Comp Sci I',
         classCode: 'CS 31',
+        classType: 'LowerDiv',
         availability: true,
         prereq: [],
         completed: false,
@@ -12,6 +13,7 @@ export const ClassData = [
     {
         className: 'Intro to Comp Sci II',
         classCode: 'CS 32',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['CS 31'],
         completed: false,
@@ -22,6 +24,7 @@ export const ClassData = [
     {
         className: 'Intro to Comp Organization',
         classCode: 'CS 33',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['CS 32'],
         completed: false,
@@ -32,6 +35,7 @@ export const ClassData = [
     {
         className: 'Software Construction',
         classCode: 'CS 35L',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['CS 31'],
         completed: false,
@@ -42,6 +46,7 @@ export const ClassData = [
     {
         className: 'Logic Design of Digital Systems',
         classCode: 'CS M51A or ECE M16',
+        classType: 'LowerDiv',
         availability: true,
         prereq: [],
         completed: false,
@@ -52,6 +57,7 @@ export const ClassData = [
     {
         className: 'Differential and Inegral Calculus',
         classCode: 'Math 31A',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['CS 31'],
         completed: false,
@@ -62,6 +68,7 @@ export const ClassData = [
     {
         className: 'Integration and Infinite Series',
         classCode: 'Math 31B',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 31A'],
         completed: false,
@@ -72,6 +79,7 @@ export const ClassData = [
     {
         className: 'Calculus of Several Variables',
         classCode: 'Math 32A',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 31A'],
         completed: false,
@@ -82,6 +90,7 @@ export const ClassData = [
     {
         className: 'Calculus of Several Variables',
         classCode: 'Math 32B',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 31B', 'Math 32A'],
         completed: false,
@@ -92,6 +101,7 @@ export const ClassData = [
     {
         className: 'Linear Algebra and Applications',
         classCode: 'Math 33A',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 31B'],
         completed: false,
@@ -102,6 +112,7 @@ export const ClassData = [
     {
         className: 'Differential Equations',
         classCode: 'Math 33B',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 31B'],
         completed: false,
@@ -112,6 +123,7 @@ export const ClassData = [
     {
         className: 'Introduction to Discrete Structures',
         classCode: 'Math 61',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 31A', 'Math 31B'],
         completed: false,
@@ -122,6 +134,7 @@ export const ClassData = [
     {
         className: 'Physics for Scientists and Engineers: Mechanics',
         classCode: 'Physics 1A',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Math 32A'],
         completed: false,
@@ -132,6 +145,7 @@ export const ClassData = [
     {
         className: 'Physics for Scientists and Engineers: Oscillations, Waves, Electric and Magnetic Fields',
         classCode: 'Physics 1B',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Physics 1A', 'Math 31B', 'Math 32A'],
         completed: false,
@@ -142,6 +156,7 @@ export const ClassData = [
     {
         className: 'Physics for Scientists and Engineers: Electrodynamics, Optics, and Special Relativity',
         classCode: 'Physics 1C',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Physics 1A', 'Physics 1B', 'Math 32A', 'Math 32B'],
         completed: false,
@@ -152,6 +167,7 @@ export const ClassData = [
     {
         className: 'Physics Laboratory for Scientists and Engineers: Mechanics OR Electricity and Magnetism',
         classCode: 'Physics 4AL or 4BL',
+        classType: 'LowerDiv',
         availability: true,
         prereq: ['Physics 1A'],
         completed: false,
@@ -162,6 +178,7 @@ export const ClassData = [
     {
         className: 'Operating Systems Principles',
         classCode: 'CS 111',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS 32','CS 33','CS 35L'],
         completed: false,
@@ -172,6 +189,7 @@ export const ClassData = [
     {
         className: 'Computer Network Fundamentals',
         classCode: 'CS 118',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS 111'],
         completed: false,
@@ -182,6 +200,7 @@ export const ClassData = [
     {
         className: 'Programming Languages',
         classCode: 'CS 131',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS 33', 'CS 35L'],
         completed: false,
@@ -192,6 +211,7 @@ export const ClassData = [
     {
         className: 'Computer Systems Architecture',
         classCode: 'CS M151B or ECE M116C',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS 33', 'CS M51A or ECE M16'],
         completed: false,
@@ -202,6 +222,7 @@ export const ClassData = [
     {
         className: 'Introductory Digital Design Laboratory',
         classCode: 'CS M152A or ECE M116L',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS M51A or ECE M16'],
         completed: false,
@@ -212,6 +233,7 @@ export const ClassData = [
     {
         className: 'Introduction to Algorithms and Complexity',
         classCode: 'CS 180',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS 32','Math 61'],
         completed: false,
@@ -222,6 +244,7 @@ export const ClassData = [
     {
         className: 'Theory of Computing',
         classCode: 'CS 181',
+        classType: 'UpperDiv',
         availability: true,
         prereq: [],
         completed: false,
@@ -231,7 +254,8 @@ export const ClassData = [
     },
     {
         className: 'Software Engineering',
-        classCode: 'CS 130 152B',
+        classCode: 'CS 130',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS 111', 'CS 131'],
         completed: false,
@@ -242,6 +266,7 @@ export const ClassData = [
     {
         className: 'Digital Design Project Laboratory',
         classCode: 'CS 152B',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['CS M151B or ECE M116C'],
         completed: false,
@@ -252,6 +277,7 @@ export const ClassData = [
     {
         className: 'Statisitics',
         classCode: 'Stats 100A or Math 170A or Math 170E or ECE 131A or CEE 110)',
+        classType: 'UpperDiv',
         availability: true,
         prereq: ['Math 32B', 'Math 33A'],
         completed: false,
@@ -262,6 +288,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'CS Upper Div Elective #1 (CS 100-188)',
+        classType: 'Elective',
         availability: true,
         prereq: [],
         completed: false,
@@ -272,6 +299,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'CS Upper Div Elective #2 (CS 100-188)',
+        classType: 'Elective',
         availability: true,
         prereq: [],
         completed: false,
@@ -282,6 +310,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'CS Upper Div Elective #3 (CS 100-187)',
+        classType: 'Elective',
         availability: true,
         prereq: [],
         completed: false,
@@ -292,6 +321,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'CS Upper Div Elective #4 (CS 100-187)',
+        classType: 'Elective',
         availability: true,
         prereq: [],
         completed: false,
@@ -302,6 +332,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'CS Upper Div Elective #5 (CS 100-187)',
+        classType: 'Elective',
         availability: true,
         prereq: [],
         completed: false,
@@ -312,36 +343,40 @@ export const ClassData = [
     {
         className: '',
         classCode: 'TBR #1',
+        classType: 'TechBreadth',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
         units: 4,
-        description: 'TBR'
+        description: 'Choose 3 Tech Breadth Classes'
     },
     {
         className: '',
         classCode: 'TBR #2',
+        classType: 'TechBreadth',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
         units: 4,
-        description: 'TBR'
+        description: 'Choose 3 Tech Breadth Classes'
     },
     {
         className: '',
         classCode: 'TBR #3',
+        classType: 'TechBreadth',
         availability: true,
         prereq: [],
         completed: false,
         grade: 0,
         units: 4,
-        description: 'TBR'
+        description: 'Choose 3 Tech Breadth Classes'
     },
     {
         className: '',
         classCode: 'Sci-Tech #1',
+        classType: 'SciTech',
         availability: true,
         prereq: [],
         completed: false,
@@ -352,6 +387,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'Sci-Tech #2',
+        classType: 'SciTech',
         availability: true,
         prereq: [],
         completed: false,
@@ -362,6 +398,7 @@ export const ClassData = [
     {
         className: '',
         classCode: 'Sci-Tech #3',
+        classType: 'SciTech',
         availability: true,
         prereq: [],
         completed: false,
