@@ -2,4 +2,12 @@
 
 
 npm install
+
+echo -e "\n"
+read -p "Please enter the Firebase API Key included in each of our team's report: " apiKey
+
+echo "REACT_APP_FIREBASE_API_KEY=$apiKey" > .env
+
+echo ".env file has been added with your Firebase API Key."
+
 npm start
