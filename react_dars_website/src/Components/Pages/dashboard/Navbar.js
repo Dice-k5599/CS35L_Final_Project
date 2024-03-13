@@ -4,7 +4,6 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-// import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -34,6 +33,13 @@ function Navigationbar(){
                         className="rounded-lg hover:bg-white/[.1]"
                     >
                         MyClasses</Nav.Link>
+                        <Nav.Link 
+                        href="https://be.my.ucla.edu/studylist.aspx"
+                        target="_blank"
+                        onClick={() => {navigate("/selectionPage")}}
+                        className="rounded-lg hover:bg-white/[.1]"
+                    >
+                        MyUCLA</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end mr-10">
                     <Nav.Link 
@@ -44,17 +50,6 @@ function Navigationbar(){
                         Sign Out</Nav.Link>
                 </Nav>
             </Navbar>
-            {/* <nav className="shadow dark:bg-gray-800">
-                <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">Dashboard</p>
-
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">MyCourses</p>
-
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">About Us</p>
-
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">Log Out</p>
-                </div>
-            </nav> */}
         </>
         
       );
