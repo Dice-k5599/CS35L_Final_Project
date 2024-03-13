@@ -57,4 +57,16 @@ Let's get started!
 - That's it! You have set up Firebase properly, let's go back to the source code. 
 
 ## 2. Running the app: 
-- In our app, 
+- In our app, in the terminal, be sure that you are in react_dars_website directory. You can check using `pwd` command to see where your current directory is and use `cd` to change to react_dars_website.
+- Run the following two commands, the app should start shortly after.
+  
+  ```
+  npm install
+  npm start
+  ```
+- The app will launch, you can now begin using it, under a localhost. It should look like this:
+<img width="1674" alt="Screenshot 2024-03-13 at 12 06 37 AM" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/64292779/1333d7db-3bc0-43e3-8967-89cd3126aef9">
+
+- That's it! Phewww...
+- Thank you for following the instructions. Happy coding!
+
