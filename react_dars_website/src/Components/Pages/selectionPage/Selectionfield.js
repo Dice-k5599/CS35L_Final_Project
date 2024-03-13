@@ -147,27 +147,27 @@ const Selectionfield = () => {
 
             {/* SelectionCardList compnenet will return a list of selectionCards aka checkboxes */}
 
-            <p className="f2 b mt3">
+            <p className="f2 b mt3 sticky top-14 bg-white z-10">
                 Lower Division Courses
             </p>
             <SelectionCardList classes={lowerDivClasses} completed={lowerDivCompleted} handleCheckboxChange={handleCheckboxChange}/>
 
-            <p className="f2 b mt3">
+            <p className="f2 b mt3 sticky top-14 bg-white z-10">
                 Upper Division CS Courses
             </p>
             <SelectionCardList classes={upperDivClasses} completed={upperDivCompleted} handleCheckboxChange={handleCheckboxChange}/>
             
-            <p className="f2 b mt3">
+            <p className="f2 b mt3 sticky top-14 bg-white z-10">
                 Technical Breadth Courses
             </p>
             <SelectionCardList classes={techBreadthClasses} completed={techBreadthCompleted} handleCheckboxChange={handleCheckboxChange}/>
 
-            <p className="f2 b mt3">
+            <p className="f2 b mt3 sticky top-14 bg-white z-10">
                 Science & Technology Courses
             </p>
             <SelectionCardList classes={sciTechClasses} completed={sciTechCompleted} handleCheckboxChange={handleCheckboxChange}/>
 
-            <p className="f2 b mt3">
+            <p className="f2 b mt3 sticky top-14 bg-white z-10">
                 Upper Division CS Elective Courses
             </p>
             <SelectionCardList classes={electiveClasses} completed={electiveCompleted} handleCheckboxChange={handleCheckboxChange}/>
