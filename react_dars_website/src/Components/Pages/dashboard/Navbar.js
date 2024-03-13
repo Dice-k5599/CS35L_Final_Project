@@ -1,6 +1,4 @@
 import React, { Fragment } from "react";
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
@@ -23,23 +21,17 @@ function Navigationbar(){
                 <Navbar.Brand href="#" className="ml-10 white">Home</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link 
-                        href="#Dashboard" 
+                        href="" 
                         onClick={() => {navigate("/dashboard")}}
                         className="rounded-lg hover:bg-white/[.1] hover:text-gray-50"
                     >
                         Dashboard</Nav.Link>
                     <Nav.Link 
-                        href="#features"
+                        href=""
                         onClick={() => {navigate("/selectionPage")}}
                         className="rounded-lg hover:bg-white/[.1]"
                     >
                         MyClasses</Nav.Link>
-                        <Nav.Link 
-                        href=""
-                        onClick={() => {navigate("/uploadPage")}}
-                        className="rounded-lg hover:bg-white/[.1]"
-                    >
-                        Progress</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end mr-10">
                     <Nav.Link 
@@ -50,17 +42,6 @@ function Navigationbar(){
                         Sign Out</Nav.Link>
                 </Nav>
             </Navbar>
-            {/* <nav className="shadow dark:bg-gray-800">
-                <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">Dashboard</p>
-
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">MyCourses</p>
-
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">About Us</p>
-
-                    <p href="#" className="border-b-2 border-transparent mb0 hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-300 mx-1.5 sm:mx-6 cursor-pointer">Log Out</p>
-                </div>
-            </nav> */}
         </>
         
       );

@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react";
-import getClassData from "./getClassData";
-
-// packages import
-import { updateDoc, doc } from 'firebase/firestore';
-import { db, auth } from '../../../config/firebase'; // Assuming db is exported from firebase config
 
 // components import
 import SelectionCard from "./SelectionCard";
