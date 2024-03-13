@@ -16,6 +16,7 @@ import {
 import LoginForm from "./Components/Pages/loginPage/login.js";
 import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
 import SelectionPage from "./Components/Pages/selectionPage/SelectionPage.js";
+import UploadPage from "./Components/Pages/uploadPage/UploadPage.js";
 
 // import { Auth } from "./Components/Pages/loginPage/auth.js";
 // import { ClassReg } from "./Components/ClassReg.js";
@@ -66,6 +67,7 @@ function App() {
 
           <Route path="/selectionPage" element={<SelectionPage />}/>
           <Route path="/dashboard" element={<DashBoard />}/>
+          <Route path="/uploadPage" element={<UploadPage />} />
         </Routes>
       </Router>
     </div>
