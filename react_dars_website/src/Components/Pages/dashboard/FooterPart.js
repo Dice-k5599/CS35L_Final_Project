@@ -3,14 +3,8 @@ import "./FooterPart.css";
 
 const FooterPart = () => {
     return (
-        <div className="mt-64">
+        <div className="mt-64 relative">
         <footer class="footer">
-            {/* <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-            </div> */}
             <div>
                 <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                     viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">

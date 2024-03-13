@@ -131,7 +131,7 @@ const Classfield = () => {
   };
 
     return (
-        <div className="ml-10 mb-10">  
+        <div className="ml-10 mb3">  
             <div>
                 <div className="flex flex-row justify-between">
                     <div>
@@ -142,7 +142,7 @@ const Classfield = () => {
                             Check out courses available specifically for you next quarter, all required courses in the future, and courses you have taken in the past.  
                         </p> 
                     </div>
-                    <ResponsiveContainer width="40%" height={300}>
+                    <ResponsiveContainer width="40%" height={300} className="">
                         <PieChart>
                         <Pie
                             activeIndex={activeIndex}
@@ -173,18 +173,18 @@ const Classfield = () => {
                 </div>
 
             </div>  
-            <p className="f2 b mt3">
-                Available Courses
-            </p>
-            <CardList classes={recommendedClasses}/>
-            <p className="f2 b mt3">
-                Future Courses
-            </p>
-            <CardList classes={unCompletedClasses} />
-            <p className="f2 b mt3">
+            <p className="f2 b mt3 sticky top-14 bg-white">
                 Past Courses
             </p>
             <CardList classes={completedClasses} />
+            <p className="f2 b mt3 sticky top-14 bg-white">
+                Available Courses
+            </p>
+            <CardList classes={recommendedClasses}/>
+            <p className="f2 b mt3 sticky top-14 bg-white">
+                Future Courses
+            </p>
+            <CardList classes={unCompletedClasses} />
         </div>
     );
 }

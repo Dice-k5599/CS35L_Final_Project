@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Navigationbar from "./Navbar";
 import Classfield from "./Classfield";
 import FooterPart from "./FooterPart";
+import FileUploadField from "./FileUploadButton";
 
 function DashBoard(){
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ function DashBoard(){
         <div className="">        
             <Navigationbar />
             <Classfield />
+            <FileUploadField />
             <FooterPart />
         </div>
     );
