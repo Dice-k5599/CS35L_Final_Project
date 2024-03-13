@@ -52,7 +52,12 @@ Let's get started!
 - Go to Rules, change line 6 by replacing "false" with "true". Click publish. It should look like below: 
 <img width="1674" alt="Screenshot 2024-03-12 at 11 58 56 PM" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/64292779/807517a3-ac54-4a30-871a-cae535b09279">
 
--(ADD STORAGE FOR FILE UPLOAD!!!)
+- Finally, to set up our storage, go to storage under Project shortcuts. There should be no files by default. Click on the Create folder button next to the Upload File button, and name the folder "userTranscripts".
+<img width="1512" alt="image" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/108194726/d7bb904b-094c-4e8d-90b9-030975c95941">
+
+- Go to Rules, and change line 9 by replacing "false" with "true". Click Publish. It should look like below:
+<img width="1511" alt="image" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/108194726/fd324e81-6588-4f91-913a-5d560855dfab">
+
 
 - That's it! You have set up Firebase properly, let's go back to the source code. 
 

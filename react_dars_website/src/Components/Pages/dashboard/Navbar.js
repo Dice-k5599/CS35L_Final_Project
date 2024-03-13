@@ -19,7 +19,7 @@ function Navigationbar(){
 
     return (
         <>
-            <Navbar id="navbar" fixed="top" data-bs-theme="dark" className="">
+            <Navbar id="navbar" fixed="top" data-bs-theme="dark" className="h-14">
                 <Navbar.Brand href="#" className="ml-10 white">Home</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link 
@@ -34,6 +34,12 @@ function Navigationbar(){
                         className="rounded-lg hover:bg-white/[.1]"
                     >
                         MyClasses</Nav.Link>
+                        <Nav.Link 
+                        href=""
+                        onClick={() => {navigate("/uploadPage")}}
+                        className="rounded-lg hover:bg-white/[.1]"
+                    >
+                        Progress</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end mr-10">
                     <Nav.Link 
