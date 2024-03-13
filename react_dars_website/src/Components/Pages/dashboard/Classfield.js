@@ -15,19 +15,27 @@ const Classfield = () => {
     const [recommendedClasses, setRecommendedClasses] = useState([]);
     const [completedClasses, setCompletedClasses] = useState([]);
     const [unCompletedClasses, setUnCompletedClasses] = useState([]);
+    const [totalUnits, setTotalUnits] = useState(0);
+    const [completedUnits, setCompletedUnits] = useState(0);
 
     const [activeIndex, setActiveIndex] = useState(0);
     // Hold pie chart data
     const [pieData, setPieData] = useState([]);
 
+    const calculateTotalUnits = (classes) => {
+        return classes.reduce((total, currentClass) => total + currentClass.units, 0);
+    };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await getClassData();
+                data.sort((a,b)=> a.index - b.index);
                 setClassData(data);
                 setCompleted(data.map(item => item.completed)); // Initialize completed state
                 
                 const recommendedData = await NextClass();
+                recommendedData.sort((a,b)=>a.index - b.index);
                 setRecommendedClasses(recommendedData);
 
                 // these two functions will filter out the data array so that
@@ -35,10 +43,13 @@ const Classfield = () => {
                 // and unCompletedCourses will hold all courses user haven't completed
                 setCompletedClasses(data.filter((item) => {
                     return item.completed === true;
-                }))
+                }).sort((a,b)=> a.index - b.index))
                 setUnCompletedClasses(data.filter((item) => {
                     return item.completed === false;
-                }))
+                }).sort((a,b)=> a.index - b.index))
+
+                setTotalUnits(calculateTotalUnits(data));
+                setCompletedUnits(calculateTotalUnits(data.filter(c => c.completed)));
 
                 // get completed course for pie chart
                 const completed = data.filter(c => c.completed).length;
@@ -128,6 +139,7 @@ const Classfield = () => {
     setActiveIndex(index);
   };
 
+
     return (
         <div className="ml-10 mb-10">  
             <div>
@@ -140,6 +152,8 @@ const Classfield = () => {
                             Check out courses available specifically for you next quarter, all required courses in the future, and courses you have taken in the past.  
                         </p> 
                     </div>
+                    {/* Pie Chart */}
+                    {/* width -> parent container, height */} 
                     <ResponsiveContainer width="40%" height={300}>
                         <PieChart>
                         <Pie
@@ -166,10 +180,10 @@ const Classfield = () => {
                         </Pie>
                         </PieChart>
                     </ResponsiveContainer>  
-                    {/* Pie Chart */}
-                    {/* width -> parent container, height */} 
                 </div>
-
+            <div>
+                <p className="f5 text-right mr-64">Taken CS Units: {completedUnits}/{totalUnits}</p>
+            </div>
             </div>  
             <p className="f2 b mt3">
                 Available Courses
