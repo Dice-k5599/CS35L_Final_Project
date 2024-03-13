@@ -4,7 +4,7 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY, //AIzaSyDqYNl6d3uz4iJXPeVUyxNN0nxkxTXwJdI,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY, //"AIzaSyDqYNl6d3uz4iJXPeVUyxNN0nxkxTXwJdI",
   authDomain: "classsync-35l.firebaseapp.com",
   projectId: "classsync-35l",
   storageBucket: "classsync-35l.appspot.com",
