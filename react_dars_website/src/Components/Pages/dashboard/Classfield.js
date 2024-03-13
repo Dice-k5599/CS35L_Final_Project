@@ -142,7 +142,7 @@ const Classfield = () => {
                             Check out courses available specifically for you next quarter, all required courses in the future, and courses you have taken in the past.  
                         </p> 
                     </div>
-                    <ResponsiveContainer width="40%" height={300} className="">
+                    <ResponsiveContainer width="40%" height={275} className="">
                         <PieChart>
                         <Pie
                             activeIndex={activeIndex}
@@ -174,13 +174,22 @@ const Classfield = () => {
             <p className="f2 b mt3 sticky top-14 bg-white">
                 Past Courses
             </p>
+            <p className="f5">
+                Courses you have taken in the past will show up here. You could add or remove past courses in the MyClasses page. 
+            </p> 
             <CardList classes={completedClasses} />
             <p className="f2 b mt3 sticky top-14 bg-white">
                 Available Courses
             </p>
+            <p className="f5">
+                Based on the courses you have taken in the past and availability, we will suggest you with some of the courses you could take for your next quarter. 
+            </p>
             <CardList classes={recommendedClasses}/>
             <p className="f2 b mt3 sticky top-14 bg-white">
                 Future Courses
+            </p>
+            <p className="f5">
+                All coures you must take in the future will show up here. These include courses suggested to you and ones you currently cannot take based on prerequisites and availability. 
             </p>
             <CardList classes={unCompletedClasses} />
         </div>
