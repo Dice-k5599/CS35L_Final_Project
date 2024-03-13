@@ -13,6 +13,7 @@ const CardList = ({ classes }) => {
                             label={classItem.classCode}
                             title={classItem.className}
                             description={classItem.description}
+                            units={classItem.units}
                         />
                     </div>
                 ))

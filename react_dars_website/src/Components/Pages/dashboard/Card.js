@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 
-function Card({ label, title, description }){
+function Card({ label, title, description, units }){
 
     let [isOpen, setIsOpen] = useState(false);
 
@@ -57,7 +57,8 @@ function Card({ label, title, description }){
                             as="h3"
                             className="text-lg font-medium leading-6 text-gray-900"
                         >
-                            {title}
+                            <div>{title}</div>
+                            <div className="mt-2">units: {units}</div>
                         </Dialog.Title>
                         <div className="mt-2">
                             <p className="text-sm text-gray-500">
