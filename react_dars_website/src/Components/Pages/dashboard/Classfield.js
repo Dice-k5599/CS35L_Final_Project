@@ -15,10 +15,17 @@ const Classfield = () => {
     const [recommendedClasses, setRecommendedClasses] = useState([]);
     const [completedClasses, setCompletedClasses] = useState([]);
     const [unCompletedClasses, setUnCompletedClasses] = useState([]);
+    const [totalUnits, setTotalUnits] = useState(0);
+    const [completedUnits, setCompletedUnits] = useState(0);
 
     const [activeIndex, setActiveIndex] = useState(0);
     // Hold pie chart data
     const [pieData, setPieData] = useState([]);
+
+    //Calculate function
+    const calculateTotalUnits = (classes) => {
+        return classes.reduce((total, currentClass) => total + currentClass.units, 0);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -45,6 +52,10 @@ const Classfield = () => {
                 // get completed course for pie chart
                 const completed = data.filter(c => c.completed).length;
                 const notCompleted = data.length - completed;
+
+                // Calculating total units and total taken units
+                setTotalUnits(calculateTotalUnits(data));
+                setCompletedUnits(calculateTotalUnits(data.filter(c => c.completed)));
 
                 // Representing different course statuses for visualization
                 setPieData([
@@ -170,6 +181,9 @@ const Classfield = () => {
                     </ResponsiveContainer>  
                     {/* Pie Chart */}
                     {/* width -> parent container, height */} 
+                </div>
+                <div>
+                    <div className="text-ucla-black flex justify-end mr-40">Taken CS Units: {completedUnits}/{totalUnits} completed</div>
                 </div>
 
             </div>  
