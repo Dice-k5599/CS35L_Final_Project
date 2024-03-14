@@ -2,7 +2,6 @@ import React from "react";
 import "./SelectionCard.css";
 
 // import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
 
 
 const SelectionCard = ({ checked, onChange, label }) => {

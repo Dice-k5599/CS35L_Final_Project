@@ -23,7 +23,7 @@ Let's get started!
 
 ### C. Create a web app:
 - Click on the "</>" next to the android icon to create a web app.
-- Type an app nickname, in our case, we use "testing123app". You can ignore the Firebase hosting check since we won't be deploying the app. Click register app.
+- Type an app nickname, in our case, we use "testing123app". You can ignore the Firebase hosting check since we won't deploy the app. Click register app.
 - A panel named "add firebase sdk" will popup that has a command and a code to copy. In this code snippet, copy everything INSIDE the firebaseconfig function, which should be seven pairs of keys and values.
 - Go to our source code, go to folder named "config", which has a file called "firebase.js", paste copied pairs of keys and values into the firebaseConfig function, right below the comment that says "paste your copied keys and values pairs below". Finally, on the firebase website, click on "continue to console" to finish creating the app. 
 
@@ -35,7 +35,7 @@ Let's get started!
 
 <img width="1674" alt="Screenshot 2024-03-12 at 11 45 38 PM" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/64292779/d1b0ae9b-60ae-46f9-9017-65ace7fae9a7">
 
-- You will see a list of sign-in providers. Our app will use email-password and Google sign in, so click on Email/Password under Native Providers. Enable email/password, ignore paswordless sign in since we don't use that. Click save. You should see email/password with a green check mark saying enabled. CLick "add new provider", click on Google under Additional Providers.
+You will see a list of sign-in providers. Our app will use email-password and Google sign-in, so click on Email/Password under Native Providers. Enable email/password; ignore passwordless sign-in since we don't use that. Click save. You should see email/password with a green check mark saying enabled. Click "add new provider" and click on Google under Additional Providers.
 - Enable it. The public-facing name should be automatically filled in, add the support email for the project, which should be the one logged in to the firebase right now. It should look like below:
 <img width="1674" alt="Screenshot 2024-03-12 at 11 51 02 PM" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/64292779/3c2a0f28-2fd1-4dac-bb50-b6dcb889efda">
 
@@ -52,7 +52,7 @@ Let's get started!
 - Go to Rules, change line 6 by replacing "false" with "true". Click publish. It should look like below: 
 <img width="1674" alt="Screenshot 2024-03-12 at 11 58 56 PM" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/64292779/807517a3-ac54-4a30-871a-cae535b09279">
 
-- Finally, to set up our storage, go to storage under Project shortcuts. There should be no files by default. Click on the Create folder button next to the Upload File button, and name the folder "userTranscripts".
+- Finally, to set up our storage, go to storage under Project shortcuts. Click on "Get Started". Finish the set-up. There should be no files by default. Click on the Create folder button next to the Upload File button, and name the folder "userTranscripts".
 <img width="1512" alt="image" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/108194726/d7bb904b-094c-4e8d-90b9-030975c95941">
 
 - Go to Rules, and change line 9 by replacing "false" with "true". Click Publish. It should look like below:

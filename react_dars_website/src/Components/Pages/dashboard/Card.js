@@ -81,17 +81,6 @@ function Card({ label, title, description, units }){
                 </div>
                 </Dialog>
             </Transition>
-            {/* <div 
-                className="checkbox ma2 hover:bg-blue"
-                onClick={openModal}
-                >
-                <label className="checkbox-wrapper">
-                    <input type="checkbox" class="checkbox-input hover:bg-blue" />
-                    <span className="checkbox-tile">
-                        <span className="checkbox-label">CS3</span>
-                    </span>
-                </label>
-                </div> */}
         </>
 
     );

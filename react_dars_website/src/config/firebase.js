@@ -5,13 +5,19 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDqYNl6d3uz4iJXPeVUyxNN0nxkxTXwJdI",//process.env.REACT_APP_FIREBASE_API_KEY,
+  /*Example of the firebase config parameters, feel free to delete if you don't need:
+
+  apiKey: "Adz3SyD3YNl6d3dz4iJXPeVavxNN0axkxTdwJ0I",
   authDomain: "classsync-35l.firebaseapp.com",
   projectId: "classsync-35l",
   storageBucket: "classsync-35l.appspot.com",
-  messagingSenderId: "336533755616",
-  appId: "1:336533755616:web:d6a2a55adb5e38f6626285",
+  messagingSenderId: "336504828426",
+  appId: "1:316233123416:web:d777a55a959390f6626285",
   measurementId: "G-4ZZYSBL1RB",
+
+  */
+  //Paste your copied keys and values pairs for the firebase config parameters below this line
+
 };
 
 // Initialize Firebase

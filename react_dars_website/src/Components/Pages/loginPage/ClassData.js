@@ -292,7 +292,7 @@ export const ClassData = [
         classCode: 'CS 181',
         classType: 'UpperDiv',
         availability: true,
-        prereq: [],
+        prereq: ['CS 180'],
         completed: false,
         grade: 0,
         units: 4,
