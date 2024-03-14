@@ -182,7 +182,7 @@ const Classfield = () => {
                     </ResponsiveContainer>  
                 </div>
             <div>
-                <p className="f5 text-right mr-64">Taken CS Units: {completedUnits}/{totalUnits}</p>
+                <div className="text-ucla-black flex justify-end mr-40">Taken CS Units: {completedUnits}/{totalUnits} completed</div>
             </div>
             </div>  
             <p className="f2 b mt3">
