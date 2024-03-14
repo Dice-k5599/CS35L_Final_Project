@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-// import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -32,6 +31,13 @@ function Navigationbar(){
                         className="rounded-lg hover:bg-white/[.1]"
                     >
                         MyClasses</Nav.Link>
+                        <Nav.Link 
+                        href="https://be.my.ucla.edu/studylist.aspx"
+                        target="_blank"
+                        onClick={() => {navigate("/selectionPage")}}
+                        className="rounded-lg hover:bg-white/[.1]"
+                    >
+                        MyUCLA</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end mr-10">
                     <Nav.Link 
