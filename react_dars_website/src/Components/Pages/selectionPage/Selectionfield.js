@@ -52,11 +52,6 @@ const Selectionfield = () => {
                 setTechBreadthCompleted(techBreadthData.map(item => item.completed));
                 setSciTechCompleted(sciTechData.map(item => item.completed));
                 setElectiveCompleted(electiveData.map(item => item.completed));
-                // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
-                // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
-                // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
-                // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
-                // setLowerDivCompleted(data.filter(item => item.classType === 'LowerDiv').map(item => item.completed));
 
                 
             } catch (error) {

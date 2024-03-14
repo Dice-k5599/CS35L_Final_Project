@@ -21,6 +21,4 @@ async function addDefaultClass(collectionName) {
   }
 }
 
-//addDefaultClass('classes');
-
 export { addDefaultClass };

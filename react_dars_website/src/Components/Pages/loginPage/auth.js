@@ -146,7 +146,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   const logOut = async () => {
     try {
       await signOut(auth);
-      alert("You are logged out");
+      // alert("You are logged out");
       console.log("Logged out");
       //handleSetClassList();
     } catch (err) {
