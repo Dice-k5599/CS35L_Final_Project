@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { useState, useEffect } from "react";
+import {Auth} from "../loginPage/auth";
 
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
@@ -10,7 +12,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navigationbar(){
     const navigate = useNavigate();
+    const [showLogOutAuth, setShowLogOutAuth] = useState(false);
 
+    useEffect(() => {
+        if (showLogOutAuth) {
+          setShowLogOutAuth(false);
+          navigate("/");
+        }
+    }, [showLogOutAuth]);
+
+    
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
@@ -36,12 +47,19 @@ function Navigationbar(){
                 <Nav className="justify-content-end mr-10">
                     <Nav.Link 
                         href="#signin" 
-                        onClick={() => {navigate("/")}}
+                        onClick={() => {
+                            setShowLogOutAuth(true);
+                        }}
                         className="justify-content-end rounded-lg hover:bg-white/[.1]"
                     >
                         Sign Out</Nav.Link>
                 </Nav>
             </Navbar>
+            {showLogOutAuth && (
+                        <Auth
+                            loginType={"logout"}
+                        />
+                    )}
         </>
         
       );

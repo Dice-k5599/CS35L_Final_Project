@@ -37,7 +37,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       const user = studentCred.user;
        try {
        await sendEmailVerification(user);
-       alert("email verification sent. Please confirm the email before signing in!");
+       alert("email verification sent. Please confirm the email before signing in on the left form below!");
 
        await setDoc(doc(db, "students", user.uid), {
         email: user.email,
@@ -45,6 +45,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
         defaultClassMade: false
       });
      } catch (err) {
+       console.log(err);
        alert("Something went wrong while sending the email verification link, please refresh the page and try again");
      };
 
@@ -65,7 +66,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       if (user && !user.emailVerified) {
         await signOut(auth);
         alert("Please verify your email before signing in!");
-        //await sendEmailVerification(user); Two awaits close to each other seems to cause issues
+        //await sendEmailVerification(user); Two awaits close to each other seems to cause issues, don't uncomment this
       }
       else if(user && user.emailVerified){
         const userDocRef = doc(db, "students", user.uid); 
@@ -93,13 +94,12 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   };
 
   const resetPassword = async () => {
-    console.log("Block reset is running");
-    //alert("Password is successfully reset");
     try {
       await sendPasswordResetEmail(auth, email);
+      alert("A link to reset password has been sent to your email, please click on the link to finish the reset process.");
     } catch (err) {
       console.log(err);
-      //alert("Reset error: " + err);
+      alert("Something is wrong with the reset, please try again.");
     }
   };
 
@@ -112,7 +112,6 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       const studentDoc = await getDoc(userDocRef);
 
       if (studentDoc.exists() == false){
-        console.log("sign up code is running");
         await setDoc(doc(db, "students", user.uid), {
         email: user.email,
         verified: true,
@@ -122,14 +121,11 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       }
 
       else {
-      console.log("Block 2 is running");
-      //const userDocRef = doc(db, "students", user.uid); 
       console.log("updating user verified flag");
       await updateDoc(userDocRef, {
         verified: true
       })
 
-      //const studentDoc = await getDoc(userDocRef);
       if (studentDoc.data().defaultClassMade === false) {
         await addDefaultClass(`students/${user.uid}/classes`);
         await updateDoc(userDocRef, {
@@ -143,7 +139,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       
     } catch (err) {
       console.log(err);
-      alert("Google sign-in error: " + err);
+      alert("Something went wrong with Google sign-in. Please try again ");
     }
   };
 
@@ -151,10 +147,11 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     try {
       await signOut(auth);
       alert("You are logged out");
-      handleSetClassList();
+      console.log("Logged out");
+      //handleSetClassList();
     } catch (err) {
       console.log(err);
-      alert("Sign-out error: " + err);
+      alert("Error: you may not be logged out, consider exitting the webpage");
     }
   };
   if (loginType === "emailSignIn") {
@@ -165,5 +162,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     signUp();
   } else if (loginType === "reset") {
     resetPassword();
+  } else if (loginType === "logout") {
+    logOut();
   }
 };
