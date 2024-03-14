@@ -17,7 +17,7 @@ const firebaseConfig = {
 
   */
   //Paste your copied keys and values pairs for the firebase config parameters below this line
-  
+
 };
 
 // Initialize Firebase
