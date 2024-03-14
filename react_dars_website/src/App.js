@@ -12,9 +12,9 @@ import {
 } from "firebase/firestore";
 
 // Components import
-import LoginForm from "./Components/Pages/loginPage/login.js";
-import DashBoard from "./Components/Pages/dashboard/DashBoard.js";
-import SelectionPage from "./Components/Pages/selectionPage/SelectionPage.js";
+import LoginForm from "./myComponents/Pages/loginPage/login.js";
+import DashBoard from "./myComponents/Pages/dashboard/DashBoard.js";
+import SelectionPage from "./myComponents/Pages/selectionPage/SelectionPage.js";
 
 
 function App() {

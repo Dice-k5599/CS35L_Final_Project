@@ -20,10 +20,6 @@ const FooterPart = () => {
                 </svg>
             </div>
             <ul class="menu">
-            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
-
             </ul>
             <p>&copy;2024 Daisuke Asai | Phi Hung Nguyen | Hyun Joon Chang | Ryan Posti | Yu-Ting Hou | All Rights Reserved</p>
         </footer>
