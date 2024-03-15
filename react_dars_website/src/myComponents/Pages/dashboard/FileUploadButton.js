@@ -11,11 +11,10 @@ function FileUploadButton(){
     const [fileUpload, setFileUpload] = useState(null);
     const [uploadSuccess, setUploadSuccess] = useState(false);
 
-    const uploadFile = async () => {
-        const userDocumentRef = doc(db, "students", auth.currentUser.uid); 
-        const filesFolderRef = ref(storage, `userTranscripts/${auth.currentUser.uid}/${fileUpload.name}`);    
-        
+    const uploadFile = async () => {   
         try {
+            const userDocumentRef = doc(db, "students", auth.currentUser.uid); 
+            const filesFolderRef = ref(storage, `userTranscripts/${auth.currentUser.uid}/${fileUpload.name}`); 
             await uploadBytes(filesFolderRef, fileUpload);
             const url = await getDownloadURL(filesFolderRef);
             setUploadSuccess(true);
@@ -25,6 +24,7 @@ function FileUploadButton(){
         } catch(error) {
             console.error(error);
             setUploadSuccess(false);
+            return;
         }
     };
 
