@@ -179,8 +179,6 @@ const Classfield = () => {
                         </Pie>
                         </PieChart>
                     </ResponsiveContainer>  
-                    {/* Pie Chart */}
-                    {/* width -> parent container, height */} 
                 </div>
                 <div>
                     <div className="text-ucla-black flex justify-end mr-40">Taken CS Units: {completedUnits}/{totalUnits} completed</div>
