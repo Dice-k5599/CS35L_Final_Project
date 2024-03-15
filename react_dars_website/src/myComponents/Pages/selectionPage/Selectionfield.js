@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, Component } from "react";
 import "./Selectionfield.css";
 import getClassData from "./getClassData";
 
@@ -8,6 +9,7 @@ import { db, auth } from '../../../config/firebase'; // Assuming db is exported 
 
 // component import
 import SelectionCardList from "./SelectionCardList";
+import SearchBar from "./SearchBar";
 
 const Selectionfield = () => {
     const [classData, setClassData] = useState([]);
@@ -23,6 +25,7 @@ const Selectionfield = () => {
     const [electiveClasses, setElectiveClasses] = useState([]);
     const [electiveCompleted, setElectiveCompleted] = useState([]);
 
+    const [searchfield, setSearchField] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,11 +61,13 @@ const Selectionfield = () => {
                 console.error('Error fetching classes data:', error);
             }
         };
+
         
         fetchData(); // Call fetchData when the component mounts
+
+
     }, []);
     
-
     // since we have five lists, a simple index access to classData array will not update firebase database correctly. 
     // This is because when for example, index 1 is passed as argument to this handleCheckboxChange function, the 
     // corresponding class is ambiguous because there are 5 classes that could have index 1 (again because 5 lists). 
@@ -129,6 +134,36 @@ const Selectionfield = () => {
         }
     };
 
+    const onSearchChange = (event) => {
+        //need to do this instead of this.state.searchfield = value
+        setSearchField(event.target.value);
+        // console.log(searchfield);
+    }
+
+    const onButtonPress = () => {
+        const filteredData = classData.filter(classData => {
+            const userInput = searchfield;
+            return classData.classCode.toLowerCase().includes(userInput.toLowerCase());
+        })
+        setLowerDivClasses(filteredData.filter(item => item.classType === 'LowerDiv').sort((a,b)=> a.index - b.index));
+        setUpperDivClasses(filteredData.filter(item => item.classType === 'UpperDiv').sort((a,b)=> a.index - b.index)); // array of upper div classes
+        setTechBreadthClasses(filteredData.filter(item => item.classType === 'TechBreadth').sort((a,b)=> a.index - b.index));   // array of techbreadth classes
+        setSciTechClasses(filteredData.filter(item => item.classType === 'SciTech').sort((a,b)=> a.index - b.index));   // array scitech classes
+        setElectiveClasses(filteredData.filter(item => item.classType === 'Elective').sort((a,b)=> a.index - b.index)); // array of electives
+    }
+
+    const onReset = () => {
+        console.log("onReset");
+
+        setSearchField("");
+        setLowerDivClasses(classData.filter(item => item.classType === 'LowerDiv').sort((a,b)=> a.index - b.index));
+        setUpperDivClasses(classData.filter(item => item.classType === 'UpperDiv').sort((a,b)=> a.index - b.index)); // array of upper div classes
+        setTechBreadthClasses(classData.filter(item => item.classType === 'TechBreadth').sort((a,b)=> a.index - b.index));   // array of techbreadth classes
+        setSciTechClasses(classData.filter(item => item.classType === 'SciTech').sort((a,b)=> a.index - b.index));   // array scitech classes
+        setElectiveClasses(classData.filter(item => item.classType === 'Elective').sort((a,b)=> a.index - b.index)); // array of electives
+    }
+
+
     return (
         <div className="ml-10 mb-10">  
             <div>
@@ -139,6 +174,9 @@ const Selectionfield = () => {
                     Select courses you have taken in the past. Based on your current progression, we will suggest courses you could take in the next quarter and in the future. 
                 </p>    
             </div>  
+
+            {/* search bar component */}
+            <SearchBar text={searchfield} setText={setSearchField} onSearchChange={onSearchChange} onButtonPress={onButtonPress} onReset={onReset}/>
 
             {/* SelectionCardList compnenet will return a list of selectionCards aka checkboxes */}
 
