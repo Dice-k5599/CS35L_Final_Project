@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/myComponents/Pages/{dashboard,selectionPage,selectionPage}/*.js"],
+  content: ["./src/myComponents/Pages/*/*.js"],
   theme: {
     extend: {
       colors: {
