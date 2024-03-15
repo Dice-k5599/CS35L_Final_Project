@@ -42,7 +42,8 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
        await setDoc(doc(db, "students", user.uid), {
         email: user.email,
         verified: false,
-        defaultClassMade: false
+        defaultClassMade: false,
+        fileurl: null
       });
      } catch (err) {
        console.log(err);

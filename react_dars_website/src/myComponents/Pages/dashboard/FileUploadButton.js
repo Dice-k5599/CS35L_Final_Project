@@ -1,23 +1,55 @@
 import React, { useState } from "react";
-import { auth, storage} from "../../../config/firebase.js";
-import { ref, uploadBytes } from "firebase/storage";
+import { db, auth, storage} from "../../../config/firebase.js";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '@headlessui/react'
+import { doc, updateDoc, getDoc } from "firebase/firestore";
+
+
 
 function FileUploadButton(){
+
     const [fileUpload, setFileUpload] = useState(null);
     const [uploadSuccess, setUploadSuccess] = useState(false);
 
     const uploadFile = async () => {
-        if (!fileUpload) return;
-        const filesFolderRef = ref(storage, `userTranscripts/${fileUpload.name}`);
+        const userDocumentRef = doc(db, "students", auth.currentUser.uid); 
+        const filesFolderRef = ref(storage, `userTranscripts/${auth.currentUser.uid}/${fileUpload.name}`);    
+        
         try {
             await uploadBytes(filesFolderRef, fileUpload);
+            const url = await getDownloadURL(filesFolderRef);
             setUploadSuccess(true);
+            await updateDoc(userDocumentRef, {
+                fileurl: url
+            });
         } catch(error) {
             console.error(error);
             setUploadSuccess(false);
         }
-    }
+    };
+
+    const downloadFile = async () => {
+        try {
+            const docRef = doc(db, "students", auth.currentUser.uid);
+            const docSnap = await getDoc(docRef);
+    
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                const fileUrl = data.fileurl;
+                if (fileUrl) {
+                    window.open(fileUrl, "_blank");
+                } else {
+                    //Default fileURL is null
+                    console.log("No file URL found");
+                }
+            } else {
+                console.log("No document found");
+            }
+        } catch (error) {
+            console.error("Error fetching document:", error);
+        }
+    };
+
     return (
         <div className="mr-32 ml-10 flex flex-wrap">
             <div>
@@ -25,7 +57,7 @@ function FileUploadButton(){
                     Upload Transcript
                 </p>
                 <p className="f5">
-                    Want to keep track of your transcipt files? You could upload them into an online storage file. Browse through your folder and select a file. (Max 1 file per upload)
+                    Want to keep track of your transcipt files? You could upload them into an online storage file. Download your most recent transcipt with the download button. (Max 1 file per upload)
                 </p> 
             </div>
             <div className="">
@@ -50,6 +82,7 @@ function FileUploadButton(){
                     <p>
                         {(uploadSuccess)? <p className="f6 green">file upload success</p> : ""}
                     </p>
+                    <button className="white w-32 h-6 shrink-0 rounded-md border-1 border-black bg-gray flex justify-center items-center text-md font-medium hover:text-white hover:bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 active:bg-blue-600 transition duration-150 ease-in-out hover:scale-110" onClick={downloadFile}>Download</button>
                 </div>
             </div>
         </div>
