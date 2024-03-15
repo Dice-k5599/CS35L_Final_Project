@@ -17,6 +17,14 @@ const firebaseConfig = {
 
   */
   //Paste your copied keys and values pairs for the firebase config parameters below this line
+
+  apiKey: "AIzaSyDqYNl6d3uz4iJXPeVUyxNN0nxkxTXwJdI",
+  authDomain: "classsync-35l.firebaseapp.com",
+  projectId: "classsync-35l",
+  storageBucket: "classsync-35l.appspot.com",
+  messagingSenderId: "336533755616",
+  appId: "1:336533755616:web:d6a2a55adb5e38f6626285",
+  measurementId: "G-4ZZYSBL1RB"
 };
 
 // Initialize Firebase
