@@ -1,5 +1,4 @@
 import React from "react";
-import "./SelectionPage.css"
 
 // components import
 import Navigationbar from "../dashboard/Navbar";

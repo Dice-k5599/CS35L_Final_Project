@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { addDefaultClass } from "./AddDefaultClass";
 
 export const Auth = ({ loginType, email, password, onGetClassList }) => {
-  console.log("Auth is running");
+  // console.log("Auth is running");
   const navigate = useNavigate();
 
   const handleSetClassList = () => {
@@ -22,7 +22,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   };
 
   const signUp = async () => {
-    console.log(email);
+    // console.log(email);
     try {
       const studentCred = await createUserWithEmailAndPassword(
         auth,
@@ -71,7 +71,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       }
       else if(user && user.emailVerified){
         const userDocRef = doc(db, "students", user.uid); 
-        console.log("updating user verified flag");
+        // console.log("updating user verified flag");
         await updateDoc(userDocRef, {
           verified: true
         })
@@ -85,7 +85,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
         }
 
         handleSetClassList();
-        console.log("You are logged in");
+        // console.log("You are logged in");
         navigate("/dashboard");
       }
     } catch (err) {
@@ -105,7 +105,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
   };
 
   const signInWithGoogle = async () => {
-    console.log("Google sign in is running");
+    // console.log("Google sign in is running");
     try {
       const studentCred = await signInWithPopup(auth, googleAuth);
       const user = studentCred.user;
@@ -122,7 +122,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
       }
 
       else {
-      console.log("updating user verified flag");
+      // console.log("updating user verified flag");
       await updateDoc(userDocRef, {
         verified: true
       })
@@ -134,7 +134,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
         })
       }
       handleSetClassList();
-      console.log("You are logged in");
+      // console.log("You are logged in");
       navigate("/dashboard");
       } 
       
@@ -148,7 +148,7 @@ export const Auth = ({ loginType, email, password, onGetClassList }) => {
     try {
       await signOut(auth);
       // alert("You are logged out");
-      console.log("Logged out");
+      // console.log("Logged out");
       //handleSetClassList();
     } catch (err) {
       console.log(err);

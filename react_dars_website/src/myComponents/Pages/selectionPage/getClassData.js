@@ -5,11 +5,11 @@ const getClassesData = async () => {
   try {
     const userId = auth.currentUser?.uid; // Get the UID of the current user
     if (auth.currentUser) {
-      console.log("User is authenticated");
+      // console.log("User is authenticated");
     }
     
     const classesCollection = collection(db, "students", userId, "classes");
-    console.log(classesCollection);
+    // console.log(classesCollection);
 
     // Fetch documents from the "classes" subcollection
     const querySnapshot = await getDocs(classesCollection);
@@ -25,7 +25,7 @@ const getClassesData = async () => {
     });
 
     // Now classesData contains an array of class data retrieved from Firestore
-    console.log(classesData);
+    // console.log(classesData);
     return classesData; // Return the data for further processing if needed
   } catch (error) {
     console.log("Error getting documents: ", error);

@@ -15,7 +15,7 @@ async function addDefaultClass(collectionName) {
 
     //Indiviual adding to collection caused documents to be dropped -> using batch commit to fix this
     await batch.commit();
-    console.log('Default list added to Firestore successfully');
+    // console.log('Default list added to Firestore successfully');
 
   } catch (error) {
     console.error('Error adding default list to Firestore:', error);
