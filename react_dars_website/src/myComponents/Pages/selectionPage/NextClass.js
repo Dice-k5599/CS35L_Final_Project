@@ -19,7 +19,6 @@ const NextClass = async () => {
 
     console.log('Recommended Next Classes:', recommendedClasses);
     return recommendedClasses;
-    return 0;
   } catch (error) {
     console.error('Error recommending classes:', error);
     throw error;
