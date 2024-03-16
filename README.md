@@ -3,9 +3,10 @@
 - Feature 1: Robust authentication that can help users sign up/sign in with either email or google. They can also reset password and verify their email.
 - Feature 2: Class Selector that updates Firestore whenever a class is selected.
 - Feature 3: Notify the user which class to prioritize depending on their current completed courses and their done prerequisites.
-- Feature 4:
-- Feature 5:
-- Feature 6:
+- Feature 4: 
+- Feature 5: Upload and download client file to back-end. File persists in firebase and user is able to retrieve them. 
+- Feature 6: See information about a class when a class card is clicked (course title, units, description)
+- Feature 7: Meaningful search through server-side data: User is able to search and filter courses on the course selection page. 
 
 ## Technologies
 
