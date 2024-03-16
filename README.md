@@ -11,6 +11,7 @@
 
 - Javascript [![My Skills](https://skillicons.dev/icons?i=js)](https://skillicons.dev)
 - React [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev)
+- Node.js [![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev)
 - HTML[![My Skills](https://skillicons.dev/icons?i=html)](https://skillicons.dev)
 - CSS[![My Skills](https://skillicons.dev/icons?i=css)](https://skillicons.dev)
 - Firebase[![My Skills](https://skillicons.dev/icons?i=firebase)](https://skillicons.dev)
