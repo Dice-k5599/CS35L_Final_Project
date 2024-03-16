@@ -41,10 +41,10 @@ function FileUploadButton(){
                     window.open(fileUrl, "_blank");
                 } else {
                     //Default fileURL is null
-                    console.log("No file URL found");
+                    // console.log("No file URL found");
                 }
             } else {
-                console.log("No document found");
+                // console.log("No document found");
             }
         } catch (error) {
             console.error("Error fetching document:", error);

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, Component } from "react";
 import "./Selectionfield.css";
 import getClassData from "./getClassData";
@@ -29,7 +28,7 @@ const Selectionfield = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log('useeffect entered');
+            // console.log('useeffect entered');
             try {
                 const data = await getClassData();
                 data.sort((a,b)=> a.index - b.index);
@@ -128,7 +127,7 @@ const Selectionfield = () => {
             await updateDoc(classDocRef, {
                 completed: targetCompletedValue
             });
-            console.log("Document successfully updated!");
+            // console.log("Document successfully updated!");
         } catch (error) {
             console.error("Error updating document: ", error);
         }
@@ -153,8 +152,6 @@ const Selectionfield = () => {
     }
 
     const onReset = () => {
-        console.log("onReset");
-
         setSearchField("");
         setLowerDivClasses(classData.filter(item => item.classType === 'LowerDiv').sort((a,b)=> a.index - b.index));
         setUpperDivClasses(classData.filter(item => item.classType === 'UpperDiv').sort((a,b)=> a.index - b.index)); // array of upper div classes

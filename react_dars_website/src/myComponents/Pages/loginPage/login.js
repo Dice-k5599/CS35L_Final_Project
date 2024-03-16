@@ -29,14 +29,14 @@ const LoginForm = ({ onGetClassList }) => {
   useEffect(() => {
     if (showAuth) {
       setShowAuth(false);
-      console.log("Auth is now false");
+      // console.log("Auth is now false");
     }
   }, [showAuth]);
 
   useEffect(() => {
     if (showRegAuth) {
       setShowRegAuth(false);
-      console.log("Auth is now false");
+      // console.log("Auth is now false");
     }
   }, [showRegAuth]);
 
@@ -97,7 +97,7 @@ const LoginForm = ({ onGetClassList }) => {
                 onClick={() => {
                   setLoginType("emailSignIn");
                   setShowAuth(true);
-                  console.log("onClick is running");
+                  // console.log("onClick is running");
                 }}
               >
                 Login
