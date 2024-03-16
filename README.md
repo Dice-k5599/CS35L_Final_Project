@@ -1,4 +1,20 @@
 # Read me for CS35L Final Project
+## Features
+- Feature 1: Robust authentication that can help users sign up/sign in with either email or google. They can also reset password and verify their email.
+- Feature 2:
+- Feature 3:
+- Feature 4:
+- Feature 5:
+- Feature 6:
+
+## Technologies
+
+- Javascript [![My Skills](https://skillicons.dev/icons?i=js)](https://skillicons.dev)
+- React [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev)
+- HTML[![My Skills](https://skillicons.dev/icons?i=html)](https://skillicons.dev)
+- CSS[![My Skills](https://skillicons.dev/icons?i=css)](https://skillicons.dev)
+- Firebase[![My Skills](https://skillicons.dev/icons?i=firebase)](https://skillicons.dev)
+  
 Hello! Below is the instruction on how to run our app by creating your own firebase database.
 Please be sure that tools like Node.js, Git, and Bash are all installed prior to following this instruction as these tools are needed for the certain commands.
 Let's get started!
@@ -29,7 +45,7 @@ Let's get started!
 
 <img width="1674" alt="Screenshot 2024-03-12 at 11 41 44 PM" src="https://github.com/Dice-k5599/CS35L_Final_Project/assets/64292779/41a77054-1ba6-4579-af5c-7a866510e39a">
 
-### D. Configuring the authentication, the firestore, and (MAYBE THE STORAGE CHECK THISSSSS)
+### D. Configuring the authentication, the firestore
 - Click on the cog on the left, next to "Project Overview", then "project settings". We need to do this when we first make an app to enable metrics.
 - On the left panel, click on "Build", in which a list of stuff will drop down. Click on "Authentication". You should see the page below, click on "Get started":
 
