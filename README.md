@@ -1,4 +1,5 @@
 # Read me for CS35L Final Project
+## Check out our website [here](https://classsync-35l.web.app/)! If you want to make your own Firebase database and use it with our app, the instruction is below.
 ## Features
 - Feature 1: Robust authentication that can help users sign up/sign in with either email or google. They can also reset password and verify their email.
 - Feature 2: Class Selector that updates Firestore whenever a class is selected.
