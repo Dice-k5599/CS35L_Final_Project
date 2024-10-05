@@ -94,3 +94,4 @@ You will see a list of sign-in providers. Our app will use email-password and Go
 - That's it! Phewww...
 - Thank you for following the instructions. Happy coding!
 
+## Written by Phi Nguyen
