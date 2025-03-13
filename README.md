@@ -1,5 +1,6 @@
-# Read me for CS35L Final Project
+# Read me for ClassSync
 ## Check out our website [here](https://classsync-35l.web.app/)! If you want to make your own Firebase database and use it with our app, the instruction is below.
+ClassSync offers CS students an altenative version of UCLA's Degree Audit Systems (DARS) that is more lightweight while retaining major functions in DARS. We aim to give students a faster and more accessible way to keep track of their degree progress and we hope ClassSync can help make your academic journey more productive and therefore be part of your success. Happy studying!
 ## Features
 - Feature 1: Robust authentication that can help users sign up/sign in with either email or google. They can also reset password and verify their email.
 - Feature 2: Class Selector that updates Firestore whenever a class is selected.
